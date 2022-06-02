@@ -29,6 +29,14 @@
 						
 						%>	
 						<a href="join">회원가입</a>
+						
+						<%
+						
+					}else if(sessionId.equals("admin")) {
+						%>
+						
+						<a href="adminInfo">관리자</a>
+						
 						<%
 						
 					}else {

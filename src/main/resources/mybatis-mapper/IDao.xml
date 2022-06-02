@@ -26,8 +26,8 @@
 	<delete id="cancleDao">
 		delete from m_member where mid=#{param1} and mpw=#{param2}
 	</delete>
-	
-	
+
+
 	<!--  MemberReservationListDto (회원예약내역) SQL -->
 	<select id="listDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
 		SELECT * FROM R_LIST where rid=#{param1} ORDER BY rdayof DESC	
@@ -62,5 +62,35 @@
 	<delete id="deleteDao">
 		delete from R_LIST where rnum=#{param1}
 	</delete>
+	<delete id="deleteAllDao">
+		delete from R_LIST where rid=#{param1}
+	</delete>
+	
+	
+	<!--  관리자 모드 // MemberReservationListDto (회원예약내역) SQL -->
+	<select id="AlllistDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST ORDER BY rdayof DESC	
+	</select>
+	<select id="AllcountList" resultType="int">
+		SELECT count(*) FROM R_LIST
+	</select>
+	<select id="Alllist01Dao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rclass='접종' ORDER BY rdayof DESC	
+	</select>
+	<select id="Allcount01List" resultType="int">
+		SELECT count(*) FROM R_LIST where rclass='접종'
+	</select>
+		<select id="Alllist02Dao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rclass='진료' ORDER BY rdayof DESC	
+	</select>
+	<select id="Allcount02List" resultType="int">
+		SELECT count(*) FROM R_LIST where rclass='진료'
+	</select>
+		<select id="Alllist03Dao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rclass='미용' ORDER BY rdayof DESC	
+	</select>
+	<select id="Allcount03List" resultType="int">
+		SELECT count(*) FROM R_LIST where rclass='미용'
+	</select>
 	
 </mapper>

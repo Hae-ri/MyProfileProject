@@ -78,22 +78,22 @@
 	<td width="25%">&nbsp;</td>
 	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
 	<td width="40%">
-
-    <script language="JavaScript">
+	<input type="datetime-local" name="rdayof" id="dateTimeLocal" onchange="setMinValue()">
+	
+	<script language="JavaScript">
+		document.getElementById('dateTimeLocal').value=new Date().toISOString().slice(0,-3); 
         let dateElement = document.getElementById('dateTimeLocal');
-        let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, -5);
+        let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16);
         dateElement.value = date;
         dateElement.setAttribute("min", date);
 
         function setMinValue() {
             if(dateElement.value < date) {
-                alert('현재 시간보다 이전의 날짜는 설정할 수 없습니다.');
+                alert('현재 시간보다 이전의 날짜는 선택할 수 없습니다.');
                 dateElement.value = date;
             }
         }
     </script>
-
-	<input type="datetime-local" name="rdayof" id="dateTimeLocal" onchange="setMinValue()">
 	<!--
 	https://wildeveloperetrain.tistory.com/15
 	https://hianna.tistory.com/319?category=706939

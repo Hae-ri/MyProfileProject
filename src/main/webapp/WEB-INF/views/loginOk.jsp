@@ -42,6 +42,13 @@
 			history.go(-1);
 		</script>
 	<% 
+		} else if (request.getAttribute("mid").equals("admin")) {
+	%>
+		<script language="JavaScript">
+		document.location = "adminInfo";
+		</script>
+	
+	<% 
 		} else {
 			
 			session.setAttribute("ValidMem", "yes");

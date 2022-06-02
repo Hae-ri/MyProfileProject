@@ -58,7 +58,23 @@ public class MyProfile_Controller {
 		model.addAttribute("checkIdFlag", checkIdFlag); // checkIdFlag=1이면 로그인하려는 아이디가 존재, 0이면 아이디가 존재하지 않음.
 		model.addAttribute("checkPwFlag", checkPwFlag); // checkPwFlag=1이면 아이디와 그 아이디의 비밀번호가 일치하므로 로그인 가능
 		
-		if(checkPwFlag == 1 ) {
+		if(checkPwFlag == 1 && request.getParameter("id").equals("admin")) {
+			
+			MemberDto memberDto = dao.loginOkDao(request.getParameter("id"));
+			
+			HttpSession session = request.getSession();
+			
+			// 로그인 성공 시 세션에 id, pw 저장
+			session.setAttribute("id", memberDto.getMid()); 
+			session.setAttribute("pw", memberDto.getMpw());
+			session.setAttribute("name", memberDto.getMname());
+			
+
+			model.addAttribute("mid", memberDto.getMid());
+			model.addAttribute("mpw", memberDto.getMpw());
+			model.addAttribute("mname", memberDto.getMname());
+			
+		}if(checkPwFlag == 1 ) {
 			
 			MemberDto memberDto = dao.loginOkDao(request.getParameter("id"));
 			
@@ -210,6 +226,7 @@ public class MyProfile_Controller {
 			
 			int check = dao.cancleDao(request.getParameter("id"),request.getParameter("pw"));
 			
+			dao.deleteAllDao(request.getParameter("id"));
 			HttpSession session = request.getSession();
 
 			// 회원 정보 삭제 후 세션정보 삭제
@@ -270,4 +287,61 @@ public class MyProfile_Controller {
 	
 		return "test";
 	}
+	
+	
+	// 관리자 모드
+	
+	@RequestMapping(value = "/adminInfo") // 나의 정보 클릭 시
+	public String adminInfoInfo(HttpServletRequest request, Model model) {
+
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+	
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		session.setAttribute("name", memberDto.getMname());
+		model.addAttribute("memberDto",memberDto);
+		
+		
+		return "adminInfo"; // memberInfo.jsp로 이동
+	}
+	
+	@RequestMapping(value = "/adminhistory") // 진료 이력
+	public String adminhistory(HttpServletRequest request, Model model) {	
+		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+	
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+	
+		model.addAttribute("count",dao.AllcountList());
+		model.addAttribute("list", dao.AlllistDao()); // 전체리스트
+		
+		model.addAttribute("count01",dao.Allcount01List());
+		model.addAttribute("list01", dao.Alllist01Dao()); // 접종리스트
+		
+		model.addAttribute("count02",dao.Allcount02List());
+		model.addAttribute("list02", dao.Alllist02Dao()); // 진료리스트
+		
+		model.addAttribute("count03",dao.Allcount03List());
+		model.addAttribute("list03", dao.Alllist03Dao()); // 미용리스트
+	
+		return "adminhistory";
+	}
+	
+	@RequestMapping(value="/adminmview") // 예약 내용 보기
+	public String adminmview(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
+		
+		return "adminmview";
+	}
+	
 }

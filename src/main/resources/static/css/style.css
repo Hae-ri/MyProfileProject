@@ -1,4 +1,40 @@
+#content{
+	margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color:Yellow;  */
+    width:85%;
 
+}
+ 
+#leftColumn{
+    width:185px;   
+    float:left;
+    color: #636363;
+	font-family: NanumSquareRound;
+}
+ 
+#main{
+    padding : 0;   /* 안쪽 여백  */
+    margin-bottom: 30px ;/*바같쪽 여백 */
+    min-height: 400px; /* 최소 높이(세로크기) 지정, IE6에서 적용안됨. */
+    _height: 300px; /* IE전용 :  _(언더스코어)로 시작하는 속성 */
+   
+    margin-left:220px; /*leftColumn 영역의 width값만큼 여백으로 지정*/
+    width:950px;
+}
+
+
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+li{
+	padding-bottom:12px;
+}
+   
 .wrapper_login {
     text-align: center;
     margin:auto;
@@ -66,6 +102,11 @@ h1 {
     font-size: 50px;
     font-family: NanumSquareRound;
     font-weight: bold;	
+}
+
+h2 {
+    font-size: 22px;
+    font-family: NanumSquareRound;
 }
 
 input {
