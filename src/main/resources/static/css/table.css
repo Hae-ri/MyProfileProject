@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;	
+	height:100%;
+	background-color:#FFFFE4;
+}
+header {
+	background-color:#FFFFE4;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+footer {
+	width:100%;
+/* 	position:absolute; */
+	bottom:0;
+	background-color:#FFFFE4;
+	margin-bottom: 5px;
+}
+table.mtable {
+	margin-bottom: 50px;
+}
+
+
+
+/* mview */
+td.td-type04 { 
+	font-size: 13px;
+	color: #969696;
+	font-family: NanumSquareRound;
+
+	text-align:left;
+}
+
+
+#input01 {
+	font-size: 15px;
+	font-family: Arial,NanumSquareRound;	
+	color: #636363;
+	border: 1px solid #c0c0c0;
+	background-color: #ffffff;
+	width: 220px;
+	padding: 5px;
+}
+
+#memberinfo {
+	font-size: 20px;
+	font-weight: bold;	
+	font-family: Arial,NanumSquareRound ;	
+	color: #969696;
+	width: 220px;
+	padding: 5px;
+
+}
+
+#button01 {
+	font-size: 15px;
+	font-family: NanumSquareRound;	
+	color: #ffffff;
+	border: 2px solid #ffffff;
+	background-color: #a0a0a0;
+	width: 175px;
+	height: 40px;
+	padding: 5px;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #5D5D5D;
+}
+
+#button01:hover {
+	background-color: #666666;
+}
+
+table.tt1 {
+	font-size: 20px;
+	font-family: NanumSquareRound;
+	color: #5D5D5D;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+
+table.bye {
+	font-size: 20px;
+	font-family: NanumSquareRound;
+	color: #5D5D5D;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+
+table.tt2 {
+	font-size: 16px;
+	font-family: NanumSquareRound;
+	color: #5D5D5D;
+	font-weight: normal;
+}
+
+table.tt3 {
+	font-size: 16px;
+	font-family: NanumSquareRound;
+	color: #5D5D5D;
+	font-weight: normal;
+	background-color: #FFFFE4;
+}

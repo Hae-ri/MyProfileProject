@@ -1,0 +1,21 @@
+input[type="radio"] + label {
+	
+  display: inline-block;
+  position: relative;
+
+
+  height:30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+label{
+    padding:3px;
+    color:#222;
+    font-family:NanumSquareRound;
+	font-size: 12px;
+	margin: 8px 8px 0 8px;
+
+}

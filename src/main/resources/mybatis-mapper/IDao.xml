@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- mapper 선언 -->
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javatest.MyProfile.dao.IDao"> <!-- 인터페이스 -->
+
+	<!-- member SQL -->
+	<insert id="joinDao">
+		insert into m_member (mid, mpw, mname, mphone) values (#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	<select id="checkIdDao" resultType="int"> <!-- 반환값이 있으면 count가 1 (mid가 pk) -->
+		select count(*) from m_member where mid=#{param1}
+	</select>
+	<select id="checkPwDao" resultType="int"> <!-- 반환값이 있으면 count가 1 (mid가 pk) -->
+		select count(*) from m_member where mid=#{param1} and mpw=#{param2}
+	</select>
+	<select id="loginOkDao" resultType="com.javatest.MyProfile.dto.MemberDto">
+		select * from m_member where mid=#{param1}
+	</select>
+	<update id="InfoModifyOkDao">
+		update m_member set mpw=#{param1}, mname=#{param2}, mphone=#{param3} WHERE mid=#{param4}
+	</update>
+	<delete id="cancleDao">
+		delete from m_member where mid=#{param1} and mpw=#{param2}
+	</delete>
+	
+	
+	<!--  MemberReservationListDto (회원예약내역) SQL -->
+	<select id="listDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rid=#{param1} ORDER BY rdayof DESC	
+	</select>
+	<select id="countList" resultType="int">
+		SELECT count(*) FROM R_LIST where rid=#{param1}	
+	</select>
+	<select id="list01Dao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rid=#{param1} and rclass='접종' ORDER BY rdayof DESC	
+	</select>
+	<select id="count01List" resultType="int">
+		SELECT count(*) FROM R_LIST where rid=#{param1}	and rclass='접종'
+	</select>
+		<select id="list02Dao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rid=#{param1} and rclass='진료' ORDER BY rdayof DESC	
+	</select>
+	<select id="count02List" resultType="int">
+		SELECT count(*) FROM R_LIST where rid=#{param1}	and rclass='진료'
+	</select>
+		<select id="list03Dao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		SELECT * FROM R_LIST where rid=#{param1} and rclass='미용' ORDER BY rdayof DESC	
+	</select>
+	<select id="count03List" resultType="int">
+		SELECT count(*) FROM R_LIST where rid=#{param1}	and rclass='미용'
+	</select>
+	<insert id="writeDao">
+		insert into R_LIST (rnum, rid, rname, rclass, rdayof, rcontent,  rstatus) values (R_LIST_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+	</insert>
+	<select id="viewDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
+		select * from R_LIST where rnum=#{param1}	
+	</select>
+	<delete id="deleteDao">
+		delete from R_LIST where rnum=#{param1}
+	</delete>
+	
+</mapper>

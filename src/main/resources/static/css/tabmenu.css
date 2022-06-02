@@ -1,0 +1,102 @@
+.tabmenu .label1 {
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    width: 10%;
+    line-height: 20px;
+    font-weight: bold;
+
+    border: 2px solid pink;
+    border-radius: 3px 3px 0 0;
+    color:#5D5D5D;
+    border-width:2px 2px 0 2px;
+    cursor:pointer;
+    font-family: NanumSquareRound;
+}
+
+.tabmenu label {
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px;
+    text-align: center;
+    width: 10%;
+    line-height: 25px;
+    font-weight: bold;
+
+    border: 2px solid pink;
+    border-radius: 3px 3px 0 0;
+    color:#5D5D5D;
+    border-width:2px 2px 0 0;
+    cursor:pointer;
+    font-family: NanumSquareRound;
+}
+.tabmenu input:nth-of-type(1):checked ~ label:nth-of-type(1) {
+    background-color:pink;
+    color:#FFFFE4;
+}
+.tabmenu input:nth-of-type(2):checked ~ label:nth-of-type(2) {
+    background-color:pink;
+    color:#FFFFE4;
+}
+.tabmenu input:nth-of-type(3):checked ~ label:nth-of-type(3) {
+    background-color:pink;
+    color:#FFFFE4;
+}
+.tabmenu input:nth-of-type(4):checked ~ label:nth-of-type(4) {
+    background-color:pink;
+    color:#FFFFE4;
+}
+
+.tabmenu > * {
+    display:none;
+}
+.tabmenu input:nth-child(1):checked ~ .tab1_content,.tabmenu input:nth-child(2):checked ~ .tab2_content,.tabmenu input:nth-child(3):checked ~ .tab3_content,.tabmenu input:nth-child(4):checked ~ .tab4_content{
+    display: block;
+}
+.tabmenu .tab1_content,
+.tabmenu .tab2_content,
+.tabmenu .tab3_content,
+.tabmenu .tab4_content {
+	font-family: NanumSquareRound;
+    padding: 32px;
+    border: 2px solid pink;
+    width: 90%;
+    height: 100%;
+    color:#5D5D5D;
+    background-color:#FFFFE4;
+}
+.tabmenu label:nth-of-type(1):hover{
+    background-color:#ffffff;
+}
+.tabmenu label:nth-of-type(2):hover{
+    background-color:#ffffff;
+}
+.tabmenu label:nth-of-type(3):hover{
+    background-color:#ffffff;
+}
+.tabmenu label:nth-of-type(4):hover{
+    background-color:#ffffff;
+}
+
+
+
+/* 탭 안 테이블 */
+
+table.tab_table01 {
+	border-collapse:collapse; /*표의 테두리와 셀의 테두리 사이의 간격을 제거*/
+	width:100%; /*테이블은 px 아닌 % 로 크기 조절*/
+}
+
+table th {
+    border-top:solid 2px pink;
+    background-color:pink;
+
+}
+
+table td.tab_td {
+    border-bottom:solid 1px pink;
+    text-align:center;
+    font-family: NanumSquareRound;
+    font-weight: bold;
+}
