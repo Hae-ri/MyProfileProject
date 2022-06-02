@@ -24,7 +24,7 @@
 	</tr>
 </table>
 
-
+<center>
 
 	<table>
 	<tr>
@@ -35,7 +35,7 @@
 	</tr>
 </table>
            
-        
+</center>
         <table class="mtable">
 	<tr>
 		<td>&nbsp;</td>
