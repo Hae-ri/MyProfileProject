@@ -34,3 +34,15 @@ function del(rnum) {
 	return ;
 }
  }
+ 
+ 
+function qboardConfirm() {
+
+	if(document.reg_frm.qcontent.value.length == 0) {
+		alert("문의사항을 입력해주세요.");
+		reg_frm.rdayof.focus();
+		return;
+	}	
+	
+	document.reg_frm.submit();
+}

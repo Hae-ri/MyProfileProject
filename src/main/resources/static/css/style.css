@@ -12,6 +12,7 @@
     float:left;
     color: #636363;
 	font-family: NanumSquareRound;
+	font-weight: bold;
 }
  
 #main{
@@ -33,6 +34,8 @@ ul{
 
 li{
 	padding-bottom:12px;
+	font-size: 15px;
+	
 }
    
 .wrapper_login {

@@ -256,6 +256,14 @@ public class MyProfile_Controller {
 	public String memberwrite(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		
+		// DB에서 예약일자 가져와서
+		// for(i=0;i>count;i++) {
+		// db의 rdayof와 request.getParameter("rdayof")를 비교해서 같으면
+		// 입력하신 날짜는 이미 예약 중입니다. 뜨고
+		// 다르면 입력
+		
 		dao.writeDao(request.getParameter("rid"), request.getParameter("rname"),request.getParameter("rclass"), request.getParameter("rdayof"), request.getParameter("rcontent"), request.getParameter("rstatus"));
 		
 		return "redirect:history";
@@ -263,7 +271,7 @@ public class MyProfile_Controller {
 	
 	
 	@RequestMapping(value="/mview") // 예약 내용 보기
-	public String qview(HttpServletRequest request, Model model) {
+	public String mview(HttpServletRequest request, Model model) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
@@ -279,6 +287,75 @@ public class MyProfile_Controller {
 		dao.deleteDao(request.getParameter("rnum"));
 		
 		return "redirect:history";
+	}
+	
+	@RequestMapping(value = "/map")
+	public String map() {
+	
+		return "map";
+	}
+	
+	// 문의
+	@RequestMapping(value = "/QnA") // 문의 이력
+	public String QnA(HttpServletRequest request, Model model) {	
+		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+	
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+	
+		model.addAttribute("count",dao.countList(sessionId));
+		model.addAttribute("list", dao.listDao(sessionId)); // 전체리스트
+		
+		model.addAttribute("count01",dao.count01List(sessionId));
+		model.addAttribute("list01", dao.list01Dao(sessionId)); // 접종리스트
+		
+		model.addAttribute("count02",dao.count02List(sessionId));
+		model.addAttribute("list02", dao.list02Dao(sessionId)); // 진료리스트
+		
+		model.addAttribute("count03",dao.count03List(sessionId));
+		model.addAttribute("list03", dao.list03Dao(sessionId)); // 미용리스트
+	
+		return "QnA";
+	}
+	
+	@RequestMapping(value = "/qwrite") // 회원 예약 글쓰기 화면으로 이동
+	public String qwrite(HttpServletRequest request, Model model) {
+
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+	
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+		
+		return "qwrite";
+	}
+	
+	@RequestMapping(value = "/questionwrite")  // 회원 예약 글쓰기 화면에서 예약하기 버튼 눌렀을 때 memberwrite 실행 후 예약내역 리스트 페이지로 이동
+	public String questionwrite(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.qwriteDao(request.getParameter("qid"), request.getParameter("qname"), request.getParameter("qquestion"));
+		
+		return "redirect:QnA";
+	}
+	
+	
+	@RequestMapping(value="/qview") // 예약 내용 보기
+	public String qview(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("qview", dao.viewDao(request.getParameter("qnum")));
+		
+		return "qview";
 	}
 	
 	// 테스트 페이지

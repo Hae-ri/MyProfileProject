@@ -15,7 +15,7 @@
 			<td width="5%">&nbsp;</td>
 			<td width="10%"><a href="index"><img src="<c:url value="/resources/img/pet.png" />"></a></td>
 
-			<td width="65%">&nbsp;</td>
+			<td width="55%">&nbsp;</td>
 
 
 			<td width="10%">
@@ -69,9 +69,9 @@
 					}
 				%>
 			</td>
-
+			<td width="10%"><a href="map">오시는 길</a></td>
 		</tr>	
-
+		
 	</table>
 	<center>
 	<div style="width:90%; height: 3px; border: 1px solid pink; border-radius: 2em; background-color:pink;">

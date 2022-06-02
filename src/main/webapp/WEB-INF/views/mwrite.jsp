@@ -34,19 +34,19 @@
 					
 <table width="900px" class="tt3">
 <tr>
-	<td height="40">&nbsp;</td>
+	<td colspan="4" height="40">&nbsp;</td>
 </tr>
 <!-- R_LIST로 넘겨줄 데이터// 아이디, 이름, 예약종류, 예약일자, 요청사항, 예약상태 -->
 	<form action="memberwrite" method="post" name="reg_frm">
 	<input type="hidden" name="rstatus" value="예약완료">
 	
 <tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
-	<td width="40%" text-align="left">
+	<td>&nbsp;</td>
+	<td><img src="<c:url value="/resources/img/user.png" />"></td>
+	<td text-align="left">
 		<input id="email" type="text" name="rid" value="${memberDto.mid }" readonly>
 	</td>
-	<td width="25%">&nbsp;</td>
+	<td>&nbsp;</td>
 </tr>
 <tr>
 	<td width="25%">&nbsp;</td>
@@ -100,7 +100,7 @@
 	 -->
 	
 	</td>
-	<td width="25%">&nbsp;</td>
+	<td width="25%" align="left">&nbsp;<button type="button" onclick="checkdate()">중복확인</button></td>
 </tr>
 <tr>
 	<td width="25%">&nbsp;</td>
@@ -109,7 +109,7 @@
 	<td width="25%">&nbsp;</td>
 </tr>
 <tr>
-	<td height="40">&nbsp;</td>
+	<td colspan="4" height="40">&nbsp;</td>
 </tr>
 <tr>
 	<td height="80" colspan="4">

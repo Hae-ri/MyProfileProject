@@ -11,7 +11,7 @@ import com.javatest.MyProfile.dto.ReservationListDto;
 public interface IDao {
 
 	
-	// Member_R_LIST(회원 예약내역) 조작 dao
+	// R_LIST(예약내역) 조작 dao
 	public ArrayList<ReservationListDto> listDao(String rid); // 본인의 전체 예약리스트 가져오기
 	public ArrayList<ReservationListDto> list01Dao(String rid); // 접종 예약리스트 가져오기
 	public ArrayList<ReservationListDto> list02Dao(String rid); // 진료 예약리스트 가져오기
@@ -25,7 +25,10 @@ public interface IDao {
 	public int count03List(String rid); // 미용 예약 건수
 	public void deleteAllDao(String rid); // 해당 아이디의 예약 전체  삭제
 
-	// 관리자
+	// Q_LIST(문의내역) 조작 dao
+	
+	
+	// 관리자(admin/전부)
 	public ArrayList<ReservationListDto> AlllistDao(); //전체 예약리스트 가져오기
 	public ArrayList<ReservationListDto> Alllist01Dao(); // 접종 예약리스트 가져오기
 	public ArrayList<ReservationListDto> Alllist02Dao(); // 진료 예약리스트 가져오기
