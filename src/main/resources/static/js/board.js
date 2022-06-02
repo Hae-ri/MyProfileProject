@@ -34,13 +34,22 @@ function del(rnum) {
 	return ;
 }
  }
- 
+
+function qdel(qnum) {
+  if (!confirm("정말 취소하시겠습니까?")){ // 아니오
+    history.go( -1 );
+ }else {
+	document.location = "qdelete?qnum="+qnum;
+	alert("취소 되었습니다.");
+	return ;
+}
+ } 
  
 function qboardConfirm() {
 
-	if(document.reg_frm.qcontent.value.length == 0) {
+	if(document.reg_frm.qquestion.value.length == 0) {
 		alert("문의사항을 입력해주세요.");
-		reg_frm.rdayof.focus();
+		reg_frm.qquestion.focus();
 		return;
 	}	
 	

@@ -22,9 +22,8 @@
         <div id="leftColumn">
             <h2>${memberDto.mname }님</h2>
             <ul>
-                <li><a href="history">예약내역</a></li>
-                <li><a href="QnA">문의내역</a></li>
-				<li><a href="infomodify">회원정보</a></li>
+                <li><a href="adminhistory">예약내역</a></li>
+                <li><a href="adminQnA">문의내역</a></li>
             </ul>
         </div>
        
@@ -35,7 +34,7 @@
 
 <table class="tt1">
 						<tr>
-							<td><span id="menu">${memberDto.mname }님 문의내역</span></td>
+							<td><span id="menu">문의내역</span></td>
 						</tr>		
 					</table>
 					
@@ -100,10 +99,10 @@
 
 <tr>
 	<td height="80px" colspan="4">
-	
+	<!--
 	<input id="history_button" type="button" value="문의하기" onclick="javascript:window.location='qwrite'">
 		
-		<!--
+		
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<input id="history_button" type="button" value="돌아가기" onclick="javascript:window.location='memberInfo'">
 		-->

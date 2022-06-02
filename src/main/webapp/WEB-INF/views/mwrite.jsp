@@ -18,11 +18,29 @@
 	
 	<%@ include file="include/header.jsp" %>
 
+<% if(session.getAttribute("id") != null) {
+	%>
+
+<!--Content 영역-->
+    <div id="content" >
+       
+        <!-- 왼쪽 메뉴 영역 -->
+        <div id="leftColumn">
+            <h2>${memberDto.mname }님</h2>
+            <ul>
+                <li><a href="history">예약내역</a></li>
+                <li><a href="QnA">문의내역</a></li>
+				<li><a href="infomodify">회원정보</a></li>
+            </ul>
+        </div>
+       
+        <!-- 본문 컨테이너 : main -->
+        <div id="main">
+
  <div class="wrapper_loginok">
             
 
-<% if(session.getAttribute("id") != null) {
-	%>
+
 								
 
 					<table class="tt1">

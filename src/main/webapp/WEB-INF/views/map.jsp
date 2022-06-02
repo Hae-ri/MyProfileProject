@@ -41,7 +41,7 @@
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td id="count">인천광역시 남동구 구월동 예술로</td>
+		<td id="count">인천광역시 남동구 구월동 예술로 (예술회관역 1번 출구)</td>
 	</tr>
 	
 </table>

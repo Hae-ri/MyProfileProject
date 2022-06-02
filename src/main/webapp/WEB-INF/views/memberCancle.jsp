@@ -55,7 +55,7 @@
 	<td height="80" colspan="4">
 	
 	<input id="button" type="button" value="회원탈퇴" onclick="checkValue()">&nbsp;&nbsp;&nbsp;&nbsp;
-	<input id="button" type="button" value="취소" onclick="javascript:window.location='memberInfo'">
+	<input id="button" type="button" value="취소" onclick="javascript:window.location='infomodify'">
 	
 	</td>
 </tr>

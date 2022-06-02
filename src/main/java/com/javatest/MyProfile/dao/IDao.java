@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.javatest.MyProfile.dto.MemberDto;
+import com.javatest.MyProfile.dto.QuestionListDto;
 import com.javatest.MyProfile.dto.ReservationListDto;
 
 
@@ -23,9 +24,15 @@ public interface IDao {
 	public int count01List(String rid); // 접종 예약 건수
 	public int count02List(String rid); // 진료 예약 건수
 	public int count03List(String rid); // 미용 예약 건수
-	public void deleteAllDao(String rid); // 해당 아이디의 예약 전체  삭제
+	public void deleteAllDao(String rid); // 해당 아이디의 예약 전체 삭제
 
 	// Q_LIST(문의내역) 조작 dao
+	public ArrayList<QuestionListDto> qlistDao(String qid); // 본인의 전체 문의리스트 가져오기
+	public void qwriteDao(String qid, String qname, String qquestion, String qstatus); // 문의하기
+	public QuestionListDto qviewDao(String qnum); // 문의 내용 보기
+	public void qdeleteDao(String qnum); // 문의 삭제
+	public int qcountList(String qid); // 문의 건수
+	public void qdeleteAllDao(String qid); // 해당 아이디의 문의 전체 삭제
 	
 	
 	// 관리자(admin/전부)
@@ -38,6 +45,10 @@ public interface IDao {
 	public int Allcount02List(); // 진료 예약 건수
 	public int Allcount03List(); // 미용 예약 건수
 	
+	public ArrayList<QuestionListDto> qAlllistDao(); // 전체 문의리스트 가져오기
+	public void qreplyDao(String qanswer, String qstatus, String qnum); // 답변쓰기
+	public QuestionListDto qadminviewDao(); // 문의 내용 보기
+	public int qAllcountList(); // 문의 건수
 	
 	// M_MEMBER(회원)
 	public void joinDao(String mid, String mpw, String mnamem, String mphone); // 회원 가입

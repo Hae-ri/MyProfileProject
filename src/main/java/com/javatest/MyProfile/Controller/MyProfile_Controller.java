@@ -227,6 +227,7 @@ public class MyProfile_Controller {
 			int check = dao.cancleDao(request.getParameter("id"),request.getParameter("pw"));
 			
 			dao.deleteAllDao(request.getParameter("id"));
+			dao.qdeleteAllDao(request.getParameter("id"));
 			HttpSession session = request.getSession();
 
 			// 회원 정보 삭제 후 세션정보 삭제
@@ -273,7 +274,14 @@ public class MyProfile_Controller {
 	@RequestMapping(value="/mview") // 예약 내용 보기
 	public String mview(HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
 		
 		return "mview";
@@ -295,7 +303,7 @@ public class MyProfile_Controller {
 		return "map";
 	}
 	
-	// 문의
+	// 1:1 문의
 	@RequestMapping(value = "/QnA") // 문의 이력
 	public String QnA(HttpServletRequest request, Model model) {	
 		
@@ -308,17 +316,9 @@ public class MyProfile_Controller {
 		
 		model.addAttribute("memberDto",memberDto);
 	
-		model.addAttribute("count",dao.countList(sessionId));
-		model.addAttribute("list", dao.listDao(sessionId)); // 전체리스트
-		
-		model.addAttribute("count01",dao.count01List(sessionId));
-		model.addAttribute("list01", dao.list01Dao(sessionId)); // 접종리스트
-		
-		model.addAttribute("count02",dao.count02List(sessionId));
-		model.addAttribute("list02", dao.list02Dao(sessionId)); // 진료리스트
-		
-		model.addAttribute("count03",dao.count03List(sessionId));
-		model.addAttribute("list03", dao.list03Dao(sessionId)); // 미용리스트
+		model.addAttribute("count",dao.qcountList(sessionId));
+		model.addAttribute("list", dao.qlistDao(sessionId));
+
 	
 		return "QnA";
 	}
@@ -343,7 +343,7 @@ public class MyProfile_Controller {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		dao.qwriteDao(request.getParameter("qid"), request.getParameter("qname"), request.getParameter("qquestion"));
+		dao.qwriteDao(request.getParameter("qid"), request.getParameter("qname"), request.getParameter("qquestion"), request.getParameter("qstatus"));
 		
 		return "redirect:QnA";
 	}
@@ -352,10 +352,25 @@ public class MyProfile_Controller {
 	@RequestMapping(value="/qview") // 예약 내용 보기
 	public String qview(HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("qview", dao.viewDao(request.getParameter("qnum")));
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+		model.addAttribute("qview", dao.qviewDao(request.getParameter("qnum")));
 		
 		return "qview";
+	}
+	
+	@RequestMapping(value="/qdelete") // 예약 삭제
+	public String qdelete(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.qdeleteDao(request.getParameter("qnum"));
+		
+		return "redirect:QnA";
 	}
 	
 	// 테스트 페이지
@@ -415,10 +430,33 @@ public class MyProfile_Controller {
 	@RequestMapping(value="/adminmview") // 예약 내용 보기
 	public String adminmview(HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		MemberDto memberDto = dao.loginOkDao(sessionId);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
 		
 		return "adminmview";
 	}
 	
+	@RequestMapping(value = "/adminQnA") // 문의 이력
+	public String adminQnA(HttpServletRequest request, Model model) {	
+		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+	
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+	
+		model.addAttribute("count",dao.qAllcountList());
+		model.addAttribute("list", dao.qAlllistDao());
+
+	
+		return "adminQnA";
+	}
 }

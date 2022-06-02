@@ -23,7 +23,7 @@
        
         <!-- 왼쪽 메뉴 영역 -->
         <div id="leftColumn">
-            <h2>관리자 메뉴</h2>
+            <h2>${memberDto.mname }님</h2>
             <ul>
                 <li><a href="adminhistory">예약내역</a></li>
                 <li><a href="adminQnA">문의내역</a></li>

@@ -10,6 +10,8 @@ header {
 	background-color:#FFFFE4;
 	margin-top: 10px;
 	margin-bottom: 20px;
+    font-family: NanumSquareRound;
+    font-weight: bold;
 }
 
 footer {
@@ -115,3 +117,14 @@ table.tt3 {
 	background-color: #FFFFE4;
 }
 
+textarea {
+	width:226px;
+	height:100px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 2px #5d5d5d;
+	border-radius: 2px;
+	font-size: 12px;
+	font-family: NanumSquareRound;
+	resize: none;
+}

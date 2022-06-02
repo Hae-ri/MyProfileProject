@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,124 +17,115 @@
 
 	
 	<%@ include file="include/header.jsp" %>
-<% if(session.getAttribute("id") != null) {
+	
+	<% if(session.getAttribute("id") != null) {
 	%>
-
-<!--Content 영역-->
+	<!--Content 영역-->
     <div id="content" >
        
         <!-- 왼쪽 메뉴 영역 -->
         <div id="leftColumn">
             <h2>${memberDto.mname }님</h2>
             <ul>
-                <li><a href="adminhistory">예약내역</a></li>
-                <li><a href="adminQnA">문의내역</a></li>
-
+                <li><a href="history">예약내역</a></li>
+                <li><a href="QnA">문의내역</a></li>
+				<li><a href="infomodify">회원정보</a></li>
             </ul>
         </div>
        
         <!-- 본문 컨테이너 : main -->
         <div id="main">
+        
+        
 
+ <div class="wrapper_loginok">
+            
 
-	
 
 								
 
-					<table class="tt2">
+					<table class="tt1">
 						<tr>
-							<td><h2>예약확인</h2></td>
+							<td><span id="menu">문의확인</span></td>
 						</tr>
 					</table>
 					
 					
 <table width="900px" class="tt3">
 <tr>
-	<td height="40">&nbsp;</td>
+	<td colspan="4" height="40">&nbsp;</td>
 </tr>
-
-		
-		<input type="hidden" name="rnum" value="${mview.rnum }">
+<!-- Q_LIST에서 받아온 데이터// 이름, 문의내용, 답변내용 -->
+<input type="hidden" name="qnum" value="${qview.qnum }">
 	
 <tr>
 	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">아이디</td>
+	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
 	<td width="40%">
-		<input id="email" type="text" name="rid" value="${mview.rid }" readonly>
+	 <input type="text"  id="password" value="${qview.qname }" name="qname" readonly>
 	</td>
 	<td width="25%">&nbsp;</td>
 </tr>
 <tr>
 	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">이름</td>
+	<td width="10%"><img src="<c:url value="/resources/img/question.png" />"></td>
 	<td width="40%">
-	 <input type="text"  id="password" value="${mview.rname }" name="rname" readonly>
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">종류</td>
-	<td width="40%">
-	
-
-	<input type="text"  id="password" value="${mview.rclass }" name="rclass" readonly>
-	
-	
+	<textarea name="qquestion" readonly>${qview.qquestion }</textarea>
 	</td>
 	<td width="25%">&nbsp;</td>
 </tr>
 
 <tr>
 	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">예약일자</td>
-	<td width="40%"><input  type="text"  id="password" value="<c:out value="${fn:substring(mview.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(mview.rdayof,11,16) }"></c:out>" name="rdayof" readonly>
+	<td width="10%"><img src="<c:url value="/resources/img/answer.png" />"></td>
+	<td width="40%">
 	
+	<textarea name="qanswer" readonly>
+	<% if(request.getAttribute("qanswer") == null) {
+	%>
+	<c:out value="준비중입니다."></c:out>
+	<%
+	}else {
+	%>
+	${qview.qanswer }
+	
+	<%}
+	%>
+	</textarea>	
 	</td>
 	<td width="25%">&nbsp;</td>
 </tr>
+
+
 <tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">요청사항</td>
-	<td width="40%"><input  type="text" id="password" value="${mview.rcontent }" name="rcontent" readonly></td>
-	<td width="25%">&nbsp;</td>
+	<td colspan="4" height="40">&nbsp;</td>
 </tr>
 <tr>
-	<td height="40">&nbsp;</td>
-</tr>
-<tr>
-	<td height="80" colspan="4" align="center">
-		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='adminhistory'">&nbsp;&nbsp;&nbsp;&nbsp;
-		
-	
+	<td height="80" colspan="4">
+		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="button" type="submit" value="삭제" onclick="qdel(${qview.qnum })">
 	</td>
 </tr>
 
 </table>
-
 
 
 
 
 <% } else {out.print("로그인 후 이용 가능합니다.");} %>
 
-		<!-- </div> -->
-		
-		
-	
+</div>
         <table class="mtable">
 	<tr>
 		<td>&nbsp;</td>
 	</tr>
 </table>
 
-
-
 <!--  왼쪽 메뉴 추가 -->
 
          </div>
      </div>
-
+     
 <%@ include file="include/footer.jsp" %>
 
 </body>

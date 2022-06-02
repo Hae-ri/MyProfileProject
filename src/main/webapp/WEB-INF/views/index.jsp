@@ -28,10 +28,7 @@
 
 	<table>
 	<tr>
-		<td><img src="<c:url value="/resources/img/cat1.jpg" />"></td>
-	</tr>
-	<tr>
-		<td><img src="<c:url value="/resources/img/cat2.jpg" />"> </td>
+		<td><img src="<c:url value="/resources/img/cat4.jpg" />"> </td>
 	</tr>
 </table>
            

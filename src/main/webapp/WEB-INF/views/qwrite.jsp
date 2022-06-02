@@ -18,12 +18,30 @@
 	
 	<%@ include file="include/header.jsp" %>
 
+<% if(session.getAttribute("id") != null) {
+	%>
+		
+<!--Content 영역-->
+    <div id="content" >
+       
+        <!-- 왼쪽 메뉴 영역 -->
+        <div id="leftColumn">
+            <h2>${memberDto.mname }님</h2>
+            <ul>
+                <li><a href="history">예약내역</a></li>
+                <li><a href="QnA">문의내역</a></li>
+				<li><a href="infomodify">회원정보</a></li>
+            </ul>
+        </div>
+       
+        <!-- 본문 컨테이너 : main -->
+        <div id="main">
+
+
  <div class="wrapper_loginok">
             
 
-<% if(session.getAttribute("id") != null) {
-	%>
-								
+						
 
 					<table class="tt1">
 						<tr>
@@ -38,15 +56,8 @@
 </tr>
 <!-- Q_LIST로 넘겨줄 데이터// 아이디, 이름, 문의내용 -->
 	<form action="questionwrite" method="post" name="reg_frm">
-	
-<tr>
-	<td>&nbsp;</td>
-	<td><img src="<c:url value="/resources/img/user.png" />"></td>
-	<td text-align="left">
-		<input id="email" type="text" name="qid" value="${memberDto.mid }" readonly>
-	</td>
-	<td>&nbsp;</td>
-</tr>
+	<input type="hidden" name="qid" value="${memberDto.mid }">	
+	<input type="hidden" name="qstatus" value="준비중">
 <tr>
 	<td width="25%">&nbsp;</td>
 	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
@@ -57,10 +68,11 @@
 </tr>
 <tr>
 	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
+	<td width="10%"><img src="<c:url value="/resources/img/qwrite.png" />"></td>
 	<td width="40%">
-	<textarea id="password" rows="" cols="" name="qcontent"></textarea>
-	<input type="text" id="password" placeholder="문의사항" name="qquestion"></td>
+	
+	<textarea name="qquestion"></textarea>	
+	</td>
 	<td width="25%">&nbsp;</td>
 </tr>
 <tr>
@@ -70,7 +82,6 @@
 	<td height="80" colspan="4">
 		<input id="button" type="button" value="문의하기" onclick="qboardConfirm()">&nbsp;&nbsp;&nbsp;&nbsp;
 		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">
-	
 	</td>
 </tr>
 
@@ -88,6 +99,12 @@
 		<td>&nbsp;</td>
 	</tr>
 </table>
+
+<!--  왼쪽 메뉴 추가 -->
+
+         </div>
+     </div>
+
 
 <%@ include file="include/footer.jsp" %>
 

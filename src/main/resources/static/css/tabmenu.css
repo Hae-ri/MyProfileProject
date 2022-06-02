@@ -91,12 +91,20 @@ table.tab_table01 {
 table th {
     border-top:solid 2px pink;
     background-color:pink;
-
+    font-family: NanumSquareRound;
 }
 
 table td.tab_td {
     border-bottom:solid 1px pink;
     text-align:center;
+    font-family: NanumSquareRound;
+    font-weight: bold;
+}
+
+table td.tab_td01 {
+	padding-left:40px;
+    border-bottom:solid 1px pink;
+    text-align:left;
     font-family: NanumSquareRound;
     font-weight: bold;
 }

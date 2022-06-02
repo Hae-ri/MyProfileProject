@@ -66,6 +66,25 @@
 		delete from R_LIST where rid=#{param1}
 	</delete>
 	
+	<!--  QuestionListDto (문의게시판) SQL -->
+	<select id="qlistDao" resultType="com.javatest.MyProfile.dto.QuestionListDto">
+		SELECT * FROM Q_LIST where qid=#{param1} ORDER BY qdate DESC	
+	</select>
+	<select id="qcountList" resultType="int">
+		SELECT count(*) FROM Q_LIST where qid=#{param1}	
+	</select>
+	<insert id="qwriteDao">
+		insert into Q_LIST (qnum, qid, qname, qquestion, qstatus) values (Q_LIST_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	<select id="qviewDao" resultType="com.javatest.MyProfile.dto.QuestionListDto">
+		select * from Q_LIST where qnum=#{param1}	
+	</select>
+	<delete id="qdeleteDao">
+		delete from Q_LIST where qnum=#{param1}
+	</delete>
+	<delete id="qdeleteAllDao">
+		delete from Q_LIST where qid=#{param1}
+	</delete>
 	
 	<!--  관리자 모드 // MemberReservationListDto (회원예약내역) SQL -->
 	<select id="AlllistDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
@@ -92,5 +111,17 @@
 	<select id="Allcount03List" resultType="int">
 		SELECT count(*) FROM R_LIST where rclass='미용'
 	</select>
+	
+	<!--  관리자 모드 // QuestionListDto (문의게시판) SQL -->
+	<select id="qAlllistDao" resultType="com.javatest.MyProfile.dto.QuestionListDto">
+		SELECT * FROM Q_LIST ORDER BY qdate DESC	
+	</select>
+	<select id="qAllcountList" resultType="int">
+		SELECT count(*) FROM Q_LIST
+	</select>
+	<update id="qreplyDao">
+		update Q_LIST set qanswer=#{param1}, qstatus=#{param2} where qnum=#{param3}
+	</update>
+
 	
 </mapper>
