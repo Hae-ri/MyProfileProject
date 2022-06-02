@@ -168,10 +168,10 @@
 	
 <tr height="40">
 
-								<th>번호</th>
-								<th>예약 종류</th>
-								<th>예약일자</th>
-								<th>진료여부</th>
+								<th width="100px">번호</th>
+								<th width="200px">예약 종류</th>
+								<th width="300px">예약일자</th>
+								<th width="200px">진료여부</th>
 </tr>
 
 
