@@ -34,7 +34,7 @@
 
 <table class="tt1">
 						<tr>
-							<td><span id="menu">문의내역</span></td>
+							<td><h2>문의내역</h2></td>
 						</tr>		
 					</table>
 					
@@ -67,7 +67,7 @@
 							<tr height="30">
 								
   								<td class="tab_td">${count+1-status.count}</td>
-								<td class="tab_td01"><a href="qview?qnum=${dto.qnum }">
+								<td class="tab_td01"><a href="adminqview?qnum=${dto.qnum }">
 								
 								<c:choose>
 									<c:when test="${fn:length(dto.qquestion) > 19 }">
@@ -99,13 +99,6 @@
 
 <tr>
 	<td height="80px" colspan="4">
-	<!--
-	<input id="history_button" type="button" value="문의하기" onclick="javascript:window.location='qwrite'">
-		
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="history_button" type="button" value="돌아가기" onclick="javascript:window.location='memberInfo'">
-		-->
 	
 	</td>
 </tr>

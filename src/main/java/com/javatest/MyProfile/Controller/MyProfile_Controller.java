@@ -288,11 +288,11 @@ public class MyProfile_Controller {
 	}
 	
 	
-	@RequestMapping(value="/delete") // 예약 삭제
+	@RequestMapping(value="/delete") // 예약 취소
 	public String delete(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		dao.deleteDao(request.getParameter("rnum"));
+		dao.rcancleDao(request.getParameter("rstatus"), request.getParameter("rnum"));
 		
 		return "redirect:history";
 	}
@@ -364,11 +364,11 @@ public class MyProfile_Controller {
 		return "qview";
 	}
 	
-	@RequestMapping(value="/qdelete") // 예약 삭제
+	@RequestMapping(value="/qdelete") // 문의 취소
 	public String qdelete(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		dao.qdeleteDao(request.getParameter("qnum"));
+		dao.qcancleDao(request.getParameter("qstatus"), request.getParameter("qnum"));
 		
 		return "redirect:QnA";
 	}
@@ -382,6 +382,21 @@ public class MyProfile_Controller {
 	
 	
 	// 관리자 모드
+	
+	@RequestMapping(value = "/admininfomodify") // 정보수정 클릭 시
+	public String admininfomodify(HttpServletRequest request, Model model) {
+
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+	
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+		
+		return "admininfomodify"; // admininfomodify.jsp로 이동
+	}	
 	
 	@RequestMapping(value = "/adminInfo") // 나의 정보 클릭 시
 	public String adminInfoInfo(HttpServletRequest request, Model model) {
@@ -436,9 +451,31 @@ public class MyProfile_Controller {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
 		
 		return "adminmview";
+	}
+	
+	@RequestMapping(value="/visitOK") // 예약 건 방문완료 시
+	public String visitOK(HttpServletRequest request, Model model) {
+
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+
+		dao.visitOkDao(request.getParameter("rstatus"), request.getParameter("rnum"));
+		
+		return "redirect:adminhistory";
+	}
+	
+	@RequestMapping(value="/admindelete") // 예약 취소
+	public String admindelete(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.rcancleDao(request.getParameter("rstatus"), request.getParameter("rnum"));
+		
+		return "redirect:adminhistory";
 	}
 	
 	@RequestMapping(value = "/adminQnA") // 문의 이력
@@ -458,5 +495,30 @@ public class MyProfile_Controller {
 
 	
 		return "adminQnA";
+	}
+	
+	@RequestMapping(value="/adminqview") // 예약 내용 보기
+	public String adminqview(HttpServletRequest request, Model model) {
+		
+		HttpSession session = request.getSession();
+		String sessionId = (String) session.getAttribute("id");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto memberDto = dao.loginOkDao(sessionId);
+		
+		model.addAttribute("memberDto",memberDto);
+		model.addAttribute("qview", dao.qviewDao(request.getParameter("qnum")));
+		
+		return "adminqview";
+	}
+
+	@RequestMapping(value = "/qreplyOk")  // adminqview에서 답변쓰기 완료 버튼 누른 후
+	public String qreplyOk(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+
+		dao.qreplyDao(request.getParameter("qanswer"), request.getParameter("qstatus"),request.getParameter("qnum"));
+		
+		return "redirect:adminQnA";
 	}
 }

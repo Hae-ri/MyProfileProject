@@ -19,7 +19,7 @@ public interface IDao {
 	public ArrayList<ReservationListDto> list03Dao(String rid); // 미용 예약리스트 가져오기
 	public void writeDao(String rid, String rname, String rclass, String rdayof, String rcontent, String rstatus); // 예약하기
 	public ReservationListDto viewDao(String rnum); // 예약 내용 보기
-	public void deleteDao(String rnum); // 예약 삭제, 예약 수정 불가능 삭제 후 재예약
+	public void rcancleDao(String rstatus, String rnum); // 예약 취소
 	public int countList(String rid); // 예약 건수
 	public int count01List(String rid); // 접종 예약 건수
 	public int count02List(String rid); // 진료 예약 건수
@@ -30,7 +30,7 @@ public interface IDao {
 	public ArrayList<QuestionListDto> qlistDao(String qid); // 본인의 전체 문의리스트 가져오기
 	public void qwriteDao(String qid, String qname, String qquestion, String qstatus); // 문의하기
 	public QuestionListDto qviewDao(String qnum); // 문의 내용 보기
-	public void qdeleteDao(String qnum); // 문의 삭제
+	public void qcancleDao(String qstatus, String qnum); // 문의 취소
 	public int qcountList(String qid); // 문의 건수
 	public void qdeleteAllDao(String qid); // 해당 아이디의 문의 전체 삭제
 	
@@ -44,6 +44,7 @@ public interface IDao {
 	public int Allcount01List(); // 접종 예약 건수
 	public int Allcount02List(); // 진료 예약 건수
 	public int Allcount03List(); // 미용 예약 건수
+	public void visitOkDao(String rstatus, String rnum); // 방문완료
 	
 	public ArrayList<QuestionListDto> qAlllistDao(); // 전체 문의리스트 가져오기
 	public void qreplyDao(String qanswer, String qstatus, String qnum); // 답변쓰기

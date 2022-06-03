@@ -54,8 +54,10 @@
 	<td height="40">&nbsp;</td>
 </tr>
 
+<form action="delete" method="post" name="reg_frm">
 		
 		<input type="hidden" name="rnum" value="${mview.rnum }">
+		<input type="hidden" name="rstatus" value="예약취소">
 	
 <tr>
 	<td width="25%">&nbsp;</td>
@@ -106,14 +108,14 @@
 <tr>
 	<td height="80" colspan="4">
 		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='history'">&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="button" type="submit" value="예약취소" onclick="del(${mview.rnum })">
+		<input id="button" type="submit" value="예약취소" onclick="del()">
 	
 	</td>
 </tr>
 
 </table>
 
-
+</form>
 
 
 <% } else {out.print("로그인 후 이용 가능합니다.");} %>

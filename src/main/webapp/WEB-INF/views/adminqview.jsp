@@ -27,9 +27,8 @@
         <div id="leftColumn">
             <h2>${memberDto.mname }님</h2>
             <ul>
-                <li><a href="history">예약내역</a></li>
-                <li><a href="QnA">문의내역</a></li>
-				<li><a href="infomodify">회원정보</a></li>
+                <li><a href="adminhistory">예약내역</a></li>
+                <li><a href="adminQnA">문의내역</a></li>
             </ul>
         </div>
        
@@ -56,10 +55,9 @@
 	<td colspan="4" height="40">&nbsp;</td>
 </tr>
 <!-- Q_LIST에서 받아온 데이터// 이름, 문의내용, 답변내용 -->
-<form action="qdelete" method="post" name="reg_frm">
+<form action="qreplyOk" method="post">
 <input type="hidden" name="qnum" value="${qview.qnum }">
-<input type="hidden" name="qstatus" value="문의취소">
-	
+<input type="hidden" name="qstatus" value="답변완료">
 <tr>
 	<td width="25%">&nbsp;</td>
 	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
@@ -81,17 +79,8 @@
 	<td width="25%">&nbsp;</td>
 	<td width="10%"><img src="<c:url value="/resources/img/answer.png" />"></td>
 	<td width="40%">
-	<textarea name="qanswer" readonly>
-	<% if(request.getAttribute("qanswer") == null) {
-	%>
-		<c:out value="준비중입니다."></c:out>
-	<%
-	}else {
-	%>
-		${qview.qanswer }
-	<%}
-	%>
-	</textarea>	
+	
+	<textarea name="qanswer" >${qview.qanswer }</textarea>	
 	</td>
 	<td width="25%">&nbsp;</td>
 </tr>
@@ -102,15 +91,23 @@
 </tr>
 <tr>
 	<td height="80" colspan="4">
-		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="button" type="submit" value="문의취소" onclick="qdel()">
+	<% if(request.getAttribute("qanswer") == null) {
+	%>
+		<input id="button" type="submit" value="등록" >&nbsp;&nbsp;&nbsp;&nbsp;
+	<%
+	}else {
+	%>
+			<input id="button" type="submit" value="수정" >&nbsp;&nbsp;&nbsp;&nbsp;
+	<%}
+	%>
+		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='adminQnA'">
 	</td>
 </tr>
 
 </table>
 
 
-
+</form>
 
 <% } else {out.print("로그인 후 이용 가능합니다.");} %>
 

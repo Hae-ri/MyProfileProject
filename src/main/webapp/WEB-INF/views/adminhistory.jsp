@@ -16,7 +16,8 @@
 <body>
 <%@ include file="include/header.jsp" %>
 
-
+<% if(session.getAttribute("id") != null) {
+	%>
 
 <!--Content 영역-->
     <div id="content" >
@@ -76,11 +77,11 @@
 
 	
 <tr height="40">
-
 								<th width="100px">번호</th>
-								<th width="200px">예약 종류</th>
-								<th width="300px">예약일자</th>
+								<th width="150px">예약 종류</th>
+								<th width="200px">예약일자</th>
 								<th width="200px">예약자</th>
+								<th width="150px">상태</th>
 </tr>
 
 
@@ -88,10 +89,11 @@
 							<tr height="30">
 								
   								<td width="100px" class="tab_td">${count+1-status.count}</td>
-								<td width="200px" class="tab_td">${dto.rclass }</td>
-								<td width="300px" class="tab_td"><a href="adminmview?rnum=${dto.rnum }">
+								<td width="150px" class="tab_td">${dto.rclass }</td>
+								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto.rnum }">
 									<c:out value="${fn:substring(dto.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto.rdayof,11,16) }"></c:out>
 								<td width="200px" class="tab_td">${dto.rname }</td>
+								<td width="150px" class="tab_td">${dto.rstatus }</td>
 							</tr>		
 							</c:forEach>
 <tr>
@@ -114,11 +116,11 @@
 
 	
 <tr height="40">
-
 								<th width="100px">번호</th>
-								<th width="200px">예약 종류</th>
-								<th width="300px">예약일자</th>
-								<th width="200px">진료여부</th>
+								<th width="150px">예약 종류</th>
+								<th width="200px">예약일자</th>
+								<th width="200px">예약자</th>
+								<th width="150px">상태</th>
 </tr>
 
 
@@ -126,10 +128,11 @@
 							<tr height="30">
 								
   								<td width="100px" class="tab_td">${count01+1-status.count}</td>
-								<td width="200px" class="tab_td">${dto01.rclass }</td>
-								<td width="300px" class="tab_td"><a href="adminmview?rnum=${dto01.rnum }">
+								<td width="150px" class="tab_td">${dto01.rclass }</td>
+								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto01.rnum }">
 									<c:out value="${fn:substring(dto01.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto01.rdayof,11,16) }"></c:out>
-								<td width="200px" class="tab_td">${dto01.rstatus }</td>
+								<td width="200px" class="tab_td">${dto01.rname }</td>
+								<td width="150px" class="tab_td">${dto01.rstatus }</td>
 							</tr>		
 							</c:forEach>
 <tr>
@@ -151,11 +154,11 @@
 
 	
 <tr height="40">
-
 								<th width="100px">번호</th>
-								<th width="200px">예약 종류</th>
-								<th width="300px">예약일자</th>
-								<th width="200px">진료여부</th>
+								<th width="150px">예약 종류</th>
+								<th width="200px">예약일자</th>
+								<th width="200px">예약자</th>
+								<th width="150px">상태</th>
 </tr>
 
 
@@ -163,10 +166,11 @@
 							<tr height="30">
 								
   								<td width="100px" class="tab_td">${count02+1-status.count}</td>
-								<td width="200px" class="tab_td">${dto02.rclass }</td>
-								<td width="300px" class="tab_td"><a href="adminmview?rnum=${dto02.rnum }">
+								<td width="150px" class="tab_td">${dto02.rclass }</td>
+								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto02.rnum }">
 									<c:out value="${fn:substring(dto02.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto02.rdayof,11,16) }"></c:out>
-								<td width="200px" class="tab_td">${dto02.rstatus }</td>
+								<td width="200px" class="tab_td">${dto02.rname }</td>
+								<td width="150px" class="tab_td">${dto02.rstatus }</td>
 							</tr>		
 							</c:forEach>
 <tr>
@@ -189,11 +193,11 @@
 
 	
 <tr height="40">
-
 								<th width="100px">번호</th>
-								<th width="200px">예약 종류</th>
-								<th width="300px">예약일자</th>
-								<th width="200px">진료여부</th>
+								<th width="150px">예약 종류</th>
+								<th width="200px">예약일자</th>
+								<th width="200px">예약자</th>
+								<th width="150px">상태</th>
 </tr>
 
 
@@ -201,10 +205,11 @@
 							<tr height="30">
 								
   								<td width="100px" class="tab_td">${count03+1-status.count}</td>
-								<td width="200px" class="tab_td">${dto03.rclass }</td>
-								<td width="300px" class="tab_td"><a href="adminmview?rnum=${dto03.rnum }">
+								<td width="150px" class="tab_td">${dto03.rclass }</td>
+								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto03.rnum }">
 									<c:out value="${fn:substring(dto03.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto03.rdayof,11,16) }"></c:out>
-								<td width="200px" class="tab_td">${dto03.rstatus }</td>
+								<td width="200px" class="tab_td">${dto03.rname }</td>
+								<td width="150px" class="tab_td">${dto03.rstatus }</td>
 							</tr>		
 							</c:forEach>
 <tr>
@@ -234,6 +239,9 @@
 	</td>
 </tr>			
 		</table>	
+		
+		
+<% } else {out.print("로그인 후 이용 가능합니다.");} %>
 		<!-- </div> -->
 		
 		

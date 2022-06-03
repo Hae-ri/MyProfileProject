@@ -25,33 +25,51 @@ function boardConfirm() {
 	document.reg_frm.submit();
 }
 
-function del(rnum) {
+function del(){
+	if (!confirm("정말 취소하시겠습니까?")){ // 아니오
+	    history.go( -1 );
+	}else {
+		alert("완료 되었습니다.");
+		document.reg_frm.submit();
+		return;
+	}
+}
+
+function admindel(rnum) {
   if (!confirm("정말 취소하시겠습니까?")){ // 아니오
     history.go( -1 );
  }else {
-	document.location = "delete?rnum="+rnum;
+	document.location = "admindelete?rnum="+rnum;
 	alert("취소 되었습니다.");
 	return ;
 }
  }
-
-function qdel(qnum) {
-  if (!confirm("정말 취소하시겠습니까?")){ // 아니오
-    history.go( -1 );
- }else {
-	document.location = "qdelete?qnum="+qnum;
-	alert("취소 되었습니다.");
-	return ;
+ 
+function qdel(){
+	if (!confirm("정말 취소하시겠습니까?")){ // 아니오
+	    history.go( -1 );
+	}else {
+		alert("완료 되었습니다.");
+		document.reg_frm.submit();
+		return;
+	}
 }
- } 
  
 function qboardConfirm() {
-
 	if(document.reg_frm.qquestion.value.length == 0) {
 		alert("문의사항을 입력해주세요.");
 		reg_frm.qquestion.focus();
 		return;
 	}	
-	
 	document.reg_frm.submit();
+}
+
+function visitCheck(){
+	if (!confirm("방문완료")){ // 아니오
+	    history.go( -1 );
+	}else {
+		alert("완료 되었습니다.");
+		document.reg_frm.submit();
+		return;
+	}
 }

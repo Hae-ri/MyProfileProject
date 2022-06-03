@@ -23,7 +23,7 @@
 	<update id="InfoModifyOkDao">
 		update m_member set mpw=#{param1}, mname=#{param2}, mphone=#{param3} WHERE mid=#{param4}
 	</update>
-	<delete id="cancleDao">
+	<delete id="cancleDao"> <!--  탈퇴 -->
 		delete from m_member where mid=#{param1} and mpw=#{param2}
 	</delete>
 
@@ -59,9 +59,9 @@
 	<select id="viewDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
 		select * from R_LIST where rnum=#{param1}	
 	</select>
-	<delete id="deleteDao">
-		delete from R_LIST where rnum=#{param1}
-	</delete>
+	<update id="rcancleDao"> <!-- 예약취소 -->
+		update R_LIST set rstatus=#{param1} where rnum=#{param2}
+	</update>
 	<delete id="deleteAllDao">
 		delete from R_LIST where rid=#{param1}
 	</delete>
@@ -79,9 +79,9 @@
 	<select id="qviewDao" resultType="com.javatest.MyProfile.dto.QuestionListDto">
 		select * from Q_LIST where qnum=#{param1}	
 	</select>
-	<delete id="qdeleteDao">
-		delete from Q_LIST where qnum=#{param1}
-	</delete>
+	<update id="qcancleDao"> <!-- 문의취소 -->
+		update Q_LIST set qstatus=#{param1} where qnum=#{param2}
+	</update>
 	<delete id="qdeleteAllDao">
 		delete from Q_LIST where qid=#{param1}
 	</delete>
@@ -111,7 +111,10 @@
 	<select id="Allcount03List" resultType="int">
 		SELECT count(*) FROM R_LIST where rclass='미용'
 	</select>
-	
+	<update id="visitOkDao">
+		update R_LIST set rstatus=#{param1} where rnum=#{param2}
+	</update>
+
 	<!--  관리자 모드 // QuestionListDto (문의게시판) SQL -->
 	<select id="qAlllistDao" resultType="com.javatest.MyProfile.dto.QuestionListDto">
 		SELECT * FROM Q_LIST ORDER BY qdate DESC	
