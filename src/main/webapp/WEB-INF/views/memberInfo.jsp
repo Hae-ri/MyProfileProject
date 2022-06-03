@@ -39,7 +39,7 @@
 							<td width="25%">이력(접종/진료/미용)</td>
 							<td width="25%">예약(접종/진료/미용)</td>
 							<td width="25%">1:1 문의하기</td>
-							<td width="25%">회원정보수정</td>
+							<td width="25%">회원정보</td>
 						</tr>
 					
 						<tr  height="200">

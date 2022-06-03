@@ -82,7 +82,8 @@
 	<td width="10%"><img src="<c:url value="/resources/img/answer.png" />"></td>
 	<td width="40%">
 	<textarea name="qanswer" readonly>
-	<% if(request.getAttribute("qanswer") == null) {
+	<% 	
+		if(request.getAttribute("answer") == null) {
 	%>
 		<c:out value="준비중입니다."></c:out>
 	<%

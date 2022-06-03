@@ -16,6 +16,11 @@
 <body>
 <%@ include file="include/header.jsp" %>
 
+	<div="wrap">
+	
+	<section>
+	
+
 <% if(session.getAttribute("id") != null) {
 	%>
 
@@ -28,7 +33,7 @@
             <ul>
                 <li><a href="adminhistory">예약내역</a></li>
                 <li><a href="adminQnA">문의내역</a></li>
-
+				<li><a href="admininfomodify">정보수정</a>
             </ul>
         </div>
        
@@ -258,9 +263,9 @@
 
          </div>
      </div>
-
+</section>
 
 <%@ include file="include/footer.jsp" %>
-
+	</div>
 </body>
 </html>

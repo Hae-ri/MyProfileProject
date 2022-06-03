@@ -29,6 +29,7 @@
             <ul>
                 <li><a href="adminhistory">예약내역</a></li>
                 <li><a href="adminQnA">문의내역</a></li>
+  				<li><a href="admininfomodify">정보수정</a>
             </ul>
         </div>
        
@@ -91,13 +92,13 @@
 </tr>
 <tr>
 	<td height="80" colspan="4">
-	<% if(request.getAttribute("qanswer") == null) {
+	<% if(request.getAttribute("answer") == null) {
 	%>
 		<input id="button" type="submit" value="등록" >&nbsp;&nbsp;&nbsp;&nbsp;
 	<%
 	}else {
 	%>
-			<input id="button" type="submit" value="수정" >&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="button" type="submit" value="수정" >&nbsp;&nbsp;&nbsp;&nbsp;
 	<%}
 	%>
 		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='adminQnA'">

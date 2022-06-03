@@ -24,6 +24,7 @@
             <ul>
                 <li><a href="adminhistory">예약내역</a></li>
                 <li><a href="adminQnA">문의내역</a></li>
+				<li><a href="admininfomodify">정보수정</a>
             </ul>
         </div>
        

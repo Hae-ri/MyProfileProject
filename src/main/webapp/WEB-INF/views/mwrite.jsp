@@ -152,6 +152,11 @@
 	</tr>
 </table>
 
+<!--  왼쪽 메뉴 추가 -->
+
+         </div>
+     </div>
+     
 <%@ include file="include/footer.jsp" %>
 
 </body>

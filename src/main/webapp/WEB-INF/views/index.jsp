@@ -17,7 +17,9 @@
 	
 	<%@ include file="include/header.jsp" %>
 	
+	<div="wrap">
 	
+	<section>
 	<table class="mtable">
 	<tr>
 		<td>&nbsp;</td>
@@ -38,9 +40,10 @@
 		<td>&nbsp;</td>
 	</tr>
 </table>
-
+</section>
 
 	<%@ include file="include/footer.jsp" %>
+	</div>
 
 </body>
 </html>

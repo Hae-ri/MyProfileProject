@@ -29,6 +29,7 @@
             <ul>
                 <li><a href="adminhistory">예약내역</a></li>
                 <li><a href="adminQnA">문의내역</a></li>
+				<li><a href="admininfomodify">정보수정</a>
             </ul>
         </div>
        
@@ -108,7 +109,7 @@
 	<td height="80" colspan="4" align="center" >
 		<input id="button" type="button" value="방문완료" onclick="visitCheck()">&nbsp;&nbsp;&nbsp;&nbsp;	
 		<input id="button" type="submit" value="예약취소" onclick="admindel(${mview.rnum })">&nbsp;&nbsp;&nbsp;&nbsp;	
-		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='adminhistory'">
+		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='adminhistory'">&nbsp;&nbsp;&nbsp;&nbsp;
 	</td>
 </tr>
 

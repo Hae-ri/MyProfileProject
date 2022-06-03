@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javatest.MyProfile.dao.IDao;
 import com.javatest.MyProfile.dto.MemberDto;
+import com.javatest.MyProfile.dto.QuestionListDto;
 
 import oracle.security.crypto.core.Padding.ID;
 
@@ -283,6 +284,7 @@ public class MyProfile_Controller {
 		
 		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
+
 		
 		return "mview";
 	}
@@ -360,6 +362,9 @@ public class MyProfile_Controller {
 		
 		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("qview", dao.qviewDao(request.getParameter("qnum")));
+		
+		QuestionListDto qDto = dao.qviewDao(request.getParameter("qnum"));
+		request.setAttribute("answer", qDto.getQanswer());
 		
 		return "qview";
 	}
@@ -497,7 +502,7 @@ public class MyProfile_Controller {
 		return "adminQnA";
 	}
 	
-	@RequestMapping(value="/adminqview") // 예약 내용 보기
+	@RequestMapping(value="/adminqview") // 문의 내용 보기
 	public String adminqview(HttpServletRequest request, Model model) {
 		
 		HttpSession session = request.getSession();
@@ -508,6 +513,9 @@ public class MyProfile_Controller {
 		
 		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("qview", dao.qviewDao(request.getParameter("qnum")));
+		
+		QuestionListDto qDto = dao.qviewDao(request.getParameter("qnum"));
+		request.setAttribute("answer", qDto.getQanswer());
 		
 		return "adminqview";
 	}
