@@ -107,9 +107,15 @@
 </tr>
 <tr>
 	<td height="80" colspan="4">
-		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='history'">&nbsp;&nbsp;&nbsp;&nbsp;
+	<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='history'">&nbsp;&nbsp;&nbsp;&nbsp;
+	<%
+	if(request.getAttribute("Rstatus").equals("예약완료")) {
+	%>
 		<input id="button" type="submit" value="예약취소" onclick="del()">
-	
+		
+	<% } %>
+		
+
 	</td>
 </tr>
 

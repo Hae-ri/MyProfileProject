@@ -83,11 +83,15 @@
 	<td width="40%">
 	<textarea name="qanswer" readonly>
 	<% 	
-		if(request.getAttribute("answer") == null) {
+		if(request.getAttribute("answer").equals("준비중")) {
 	%>
 		<c:out value="준비중입니다."></c:out>
+	<% 	
+		}else if(request.getAttribute("answer").equals("문의취소")) {
+	%>
+		<c:out value="취소된 문의입니다."></c:out>
 	<%
-	}else {
+		}else {
 	%>
 		${qview.qanswer }
 	<%}
@@ -104,7 +108,17 @@
 <tr>
 	<td height="80" colspan="4">
 		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<% 	
+		if(request.getAttribute("answer").equals("준비중")) {
+		%>
 		<input id="button" type="submit" value="문의취소" onclick="qdel()">
+		<%
+		}else {
+		%>
+
+		<%}
+		%>
 	</td>
 </tr>
 

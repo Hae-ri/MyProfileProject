@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.javatest.MyProfile.dao.IDao;
 import com.javatest.MyProfile.dto.MemberDto;
 import com.javatest.MyProfile.dto.QuestionListDto;
+import com.javatest.MyProfile.dto.ReservationListDto;
 
 import oracle.security.crypto.core.Padding.ID;
 
@@ -279,13 +280,14 @@ public class MyProfile_Controller {
 		String sessionId = (String) session.getAttribute("id");
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		
 		MemberDto memberDto = dao.loginOkDao(sessionId);
 		
 		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
 
-		
+		ReservationListDto rDto = dao.viewDao(request.getParameter("rnum"));
+		request.setAttribute("Rstatus", rDto.getRstatus());
+
 		return "mview";
 	}
 	
@@ -364,8 +366,9 @@ public class MyProfile_Controller {
 		model.addAttribute("qview", dao.qviewDao(request.getParameter("qnum")));
 		
 		QuestionListDto qDto = dao.qviewDao(request.getParameter("qnum"));
-		request.setAttribute("answer", qDto.getQanswer());
+		request.setAttribute("answer", qDto.getQstatus());
 		
+
 		return "qview";
 	}
 	
@@ -460,6 +463,10 @@ public class MyProfile_Controller {
 		model.addAttribute("memberDto",memberDto);
 		model.addAttribute("mview", dao.viewDao(request.getParameter("rnum")));
 		
+		ReservationListDto rDto = dao.viewDao(request.getParameter("rnum"));
+		request.setAttribute("Rstatus", rDto.getRstatus());
+
+		
 		return "adminmview";
 	}
 	
@@ -515,7 +522,7 @@ public class MyProfile_Controller {
 		model.addAttribute("qview", dao.qviewDao(request.getParameter("qnum")));
 		
 		QuestionListDto qDto = dao.qviewDao(request.getParameter("qnum"));
-		request.setAttribute("answer", qDto.getQanswer());
+		request.setAttribute("answer", qDto.getQstatus());
 		
 		return "adminqview";
 	}

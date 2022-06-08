@@ -92,16 +92,17 @@
 </tr>
 <tr>
 	<td height="80" colspan="4">
-	<% if(request.getAttribute("answer") == null) {
+	<% if(request.getAttribute("answer").equals("준비중")) {
 	%>
 		<input id="button" type="submit" value="등록" >&nbsp;&nbsp;&nbsp;&nbsp;
 	<%
-	}else {
+	}if(request.getAttribute("answer").equals("답변완료")) {
 	%>
 		<input id="button" type="submit" value="수정" >&nbsp;&nbsp;&nbsp;&nbsp;
 	<%}
 	%>
 		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='adminQnA'">
+
 	</td>
 </tr>
 

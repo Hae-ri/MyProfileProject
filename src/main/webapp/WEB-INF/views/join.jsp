@@ -15,7 +15,7 @@
 
 <%@ include file="include/header.jsp" %>
 
-<table class="mtable">
+<table>
 	<tr>
 		<td>&nbsp;</td>
 	</tr>
@@ -30,14 +30,14 @@
                 <input type="text" id="email" placeholder="아이디" name="id"><br>
             </div>
             <div class="password">
-<img src="<c:url value="/resources/img/user.png" />">&nbsp;
+<img src="<c:url value="/resources/img/pass.png" />">&nbsp;
                 <input type="password" id="password" placeholder="비밀번호" name="pw"><br><br>
 
-<img src="<c:url value="/resources/img/user.png" />">&nbsp;
+<img src="<c:url value="/resources/img/pass.png" />">&nbsp;
                 <input type="password" id="password" placeholder="비밀번호 확인" name="pw_check"><br><br>
 <img src="<c:url value="/resources/img/user.png" />">&nbsp;
                 <input type="text" id="password" placeholder="이름" name="name"><br><br>
- <img src="<c:url value="/resources/img/user.png" />">&nbsp;
+ <img src="<c:url value="/resources/img/phone.png" />">&nbsp;
                 <input type="text" id="password" placeholder="전화번호" name="phone"><br><br>
             </div>
             <div class="div_button">

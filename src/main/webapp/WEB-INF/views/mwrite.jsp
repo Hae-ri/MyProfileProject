@@ -118,7 +118,10 @@
 	 -->
 	
 	</td>
-	<td width="25%" align="left">&nbsp;<button type="button" onclick="checkdate()">중복확인</button></td>
+	<td width="25%" align="left">
+	<!-- &nbsp;<button type="button" onclick="checkdate()">중복확인</button> -->
+	
+	</td>
 </tr>
 <tr>
 	<td width="25%">&nbsp;</td>
