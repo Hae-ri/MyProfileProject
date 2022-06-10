@@ -99,10 +99,14 @@
 	}if(request.getAttribute("answer").equals("답변완료")) {
 	%>
 		<input id="button" type="submit" value="수정" >&nbsp;&nbsp;&nbsp;&nbsp;
-	<%}
+	<%}if(request.getAttribute("answer").equals("답변완료")) {
 	%>
 		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='adminQnA'">
-
+	<%}if(request.getAttribute("answer").equals("문의취소")) {
+	%>
+		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='adminQnA'">
+	<%}
+	%>
 	</td>
 </tr>
 

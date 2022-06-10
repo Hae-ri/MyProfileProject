@@ -40,89 +40,98 @@
         <div id="main">
 
 
- <div class="wrapper_loginok">
+ 		<div class="wrapper_loginok">
             
-			<table class="tt1">
-						<tr>
-							<td><span id="menu">예약확인</span></td>
-						</tr>
-					</table>
+		<table class="tt1">
+			<tr>
+				<td><span id="menu">예약확인</span></td>
+			</tr>
+		</table>
 					
 					
-<table width="900px" class="tt3">
-<tr>
-	<td height="40">&nbsp;</td>
-</tr>
+		<table width="900px" class="tt3">
+			<tr>
+				<td height="40">&nbsp;</td>
+			</tr>
 
-<form action="delete" method="post" name="reg_frm">
+			<form action="delete" method="post" name="reg_frm">
 		
-		<input type="hidden" name="rnum" value="${mview.rnum }">
-		<input type="hidden" name="rstatus" value="예약취소">
+			<input type="hidden" name="rnum" value="${mview.rnum }">
+			<input type="hidden" name="rstatus" value="예약취소">
 	
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">아이디</td>
-	<td width="40%">
-		<input id="email" type="text" name="rid" value="${mview.rid }" readonly>
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">이름</td>
-	<td width="40%">
-	 <input type="text"  id="password" value="${mview.rname }" name="rname" readonly>
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">종류</td>
-	<td width="40%">
-	
+			<tr>
+				<td width="25%">&nbsp;</td>
+				<td width="10%" class="td-type04">아이디</td>
+				<td width="40%">
+					<input id="email" type="text" name="rid" value="${mview.rid }" readonly>
+				</td>
+				<td width="25%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="25%">&nbsp;</td>
+				<td width="10%" class="td-type04">이름</td>
+				<td width="40%">
+					<input type="text"  id="password" value="${mview.rname }" name="rname" readonly>
+				</td>
+				<td width="25%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="25%">&nbsp;</td>
+				<td width="10%" class="td-type04">종류</td>
+				<td width="40%">
+					<input type="text"  id="password" value="${mview.rclass }" name="rclass" readonly>
+				</td>
+				<td width="25%">&nbsp;</td>
+			</tr>
 
-	<input type="text"  id="password" value="${mview.rclass }" name="rclass" readonly>
-	
+			<tr>
+				<td width="25%">&nbsp;</td>
+				<td width="10%" class="td-type04">예약일자</td>
+	<!--  <td width="40%"><input  type="text"  id="password" value="<c:out value="${fn:substring(mview.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(mview.rdayof,11,16) }"></c:out>"readonly>-->
+				<td width="40%"><input  type="text"  id="password" value="<c:out value="${fn:substring(mview.rdayof,0,10) }"></c:out>&nbsp;&nbsp;
+	<% 
+	if(request.getAttribute("Rtime").equals("1")){
+	%>10:30~11:30
+	<%
+	}if(request.getAttribute("Rtime").equals("2")){
+	%>10:30~11:30
+	<%
+	}if(request.getAttribute("Rtime").equals("3")){
+	%>13:30~14:30
+	<%
+	}if(request.getAttribute("Rtime").equals("4")){
+	%>14:30~15:30
+	<%
+	}if(request.getAttribute("Rtime").equals("5")){
+	%>15:30~16:30
+	<% } %>
+	" readonly>
 	
 	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">예약일자</td>
-	<td width="40%"><input  type="text"  id="password" value="<c:out value="${fn:substring(mview.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(mview.rdayof,11,16) }"></c:out>" name="rdayof" readonly>
-	
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%" class="td-type04">요청사항</td>
-	<td width="40%"><input  type="text" id="password" value="${mview.rcontent }" name="rcontent" readonly></td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td height="40">&nbsp;</td>
-</tr>
-<tr>
-	<td height="80" colspan="4">
-	<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='history'">&nbsp;&nbsp;&nbsp;&nbsp;
+				<td width="25%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="25%">&nbsp;</td>
+					<td width="10%" class="td-type04">요청사항</td>
+					<td width="40%"><input  type="text" id="password" value="${mview.rcontent }" name="rcontent" readonly></td>
+					<td width="25%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td height="40">&nbsp;</td>
+				</tr>
+				<tr>
+					<td height="80" colspan="4">
+						<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='history'">&nbsp;&nbsp;&nbsp;&nbsp;
 	<%
 	if(request.getAttribute("Rstatus").equals("예약완료")) {
 	%>
-		<input id="button" type="submit" value="예약취소" onclick="del()">
+						<input id="button" type="submit" value="예약취소" onclick="del()">
 		
 	<% } %>
-		
-
-	</td>
-</tr>
-
-</table>
-
-</form>
-
+					</td>
+				</tr>
+			</form>	
+			</table>
 
 <% } else {out.print("로그인 후 이용 가능합니다.");} %>
 
@@ -130,11 +139,11 @@
 </div>
 
 
-        <table class="mtable">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+	<table class="mtable">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 
 <!--  왼쪽 메뉴 추가 -->
 

@@ -1,4 +1,4 @@
-package com.javatest.MyProfile.Controller;
+package com.javatest.MyProfile;
 
 import java.util.Locale;
 
@@ -267,7 +267,7 @@ public class MyProfile_Controller {
 		// 입력하신 날짜는 이미 예약 중입니다. 뜨고
 		// 다르면 입력
 		
-		dao.writeDao(request.getParameter("rid"), request.getParameter("rname"),request.getParameter("rclass"), request.getParameter("rdayof"), request.getParameter("rcontent"), request.getParameter("rstatus"));
+		dao.writeDao(request.getParameter("rid"), request.getParameter("rname"),request.getParameter("rclass"), request.getParameter("rdayof"), request.getParameter("rtime"),request.getParameter("rcontent"), request.getParameter("rstatus"));
 		
 		return "redirect:history";
 	}
@@ -287,7 +287,8 @@ public class MyProfile_Controller {
 
 		ReservationListDto rDto = dao.viewDao(request.getParameter("rnum"));
 		request.setAttribute("Rstatus", rDto.getRstatus());
-
+		request.setAttribute("Rtime", rDto.getRtime());
+		
 		return "mview";
 	}
 	
@@ -380,15 +381,8 @@ public class MyProfile_Controller {
 		
 		return "redirect:QnA";
 	}
-	
-	// 테스트 페이지
-	@RequestMapping(value = "/test")
-	public String test() {
-	
-		return "test";
-	}
-	
-	
+
+	//=================================================================================================
 	// 관리자 모드
 	
 	@RequestMapping(value = "/admininfomodify") // 정보수정 클릭 시
@@ -465,7 +459,7 @@ public class MyProfile_Controller {
 		
 		ReservationListDto rDto = dao.viewDao(request.getParameter("rnum"));
 		request.setAttribute("Rstatus", rDto.getRstatus());
-
+		request.setAttribute("Rtime", rDto.getRtime());
 		
 		return "adminmview";
 	}
@@ -536,4 +530,13 @@ public class MyProfile_Controller {
 		
 		return "redirect:adminQnA";
 	}
+	//=================================================================================================	
+	// 테스트 페이지
+	@RequestMapping(value = "/test")
+	public String test() {
+	
+		return "test";
+	}
+
+	
 }

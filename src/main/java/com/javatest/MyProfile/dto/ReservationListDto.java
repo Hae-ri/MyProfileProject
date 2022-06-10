@@ -10,6 +10,7 @@ public class ReservationListDto {
 	private String rname;
 	private String rdate;
 	private String rdayof;
+	private String rtime;
 	private String rclass;
 	private String rcontent;
 	private String rstatus;
@@ -19,7 +20,7 @@ public class ReservationListDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReservationListDto(int rnum, String rid, String rname, String rdate, String rdayof, String rclass,
+	public ReservationListDto(int rnum, String rid, String rname, String rdate, String rdayof, String rtime, String rclass,
 			String rcontent, String rstatus) {
 		super();
 		this.rnum = rnum;
@@ -27,9 +28,18 @@ public class ReservationListDto {
 		this.rname = rname;
 		this.rdate = rdate;
 		this.rdayof = rdayof;
+		this.rtime = rtime;
 		this.rclass = rclass;
 		this.rcontent = rcontent;
 		this.rstatus = rstatus;
+	}
+
+	public String getRtime() {
+		return rtime;
+	}
+
+	public void setRtime(String rtime) {
+		this.rtime = rtime;
 	}
 
 	public int getRnum() {

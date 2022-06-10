@@ -33,96 +33,90 @@
             </ul>
         </div>
        
-        <!-- 본문 컨테이너 : main -->
-        <div id="main">
-        
-        
+	<!-- 본문 컨테이너 : main -->
+	<div id="main">
 
- <div class="wrapper_loginok">
-            
+	<div class="wrapper_loginok">
 
-
-								
-
-					<table class="tt1">
-						<tr>
-							<td><span id="menu">문의확인</span></td>
-						</tr>
-					</table>
+	<table class="tt1">
+		<tr>
+			<td><span id="menu">문의확인</span></td>
+		</tr>
+	</table>
 					
 					
-<table width="900px" class="tt3">
-<tr>
-	<td colspan="4" height="40">&nbsp;</td>
-</tr>
-<!-- Q_LIST에서 받아온 데이터// 이름, 문의내용, 답변내용 -->
-<form action="qdelete" method="post" name="reg_frm">
-<input type="hidden" name="qnum" value="${qview.qnum }">
-<input type="hidden" name="qstatus" value="문의취소">
-	
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
-	<td width="40%">
-	 <input type="text"  id="password" value="${qview.qname }" name="qname" readonly>
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/question.png" />"></td>
-	<td width="40%">
-	<textarea name="qquestion" readonly>${qview.qquestion }</textarea>
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/answer.png" />"></td>
-	<td width="40%">
-	<textarea name="qanswer" readonly>
-	<% 	
-		if(request.getAttribute("answer").equals("준비중")) {
-	%>
-		<c:out value="준비중입니다."></c:out>
-	<% 	
-		}else if(request.getAttribute("answer").equals("문의취소")) {
-	%>
-		<c:out value="취소된 문의입니다."></c:out>
-	<%
-		}else {
-	%>
-		${qview.qanswer }
-	<%}
-	%>
-	</textarea>	
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-
-
-<tr>
-	<td colspan="4" height="40">&nbsp;</td>
-</tr>
-<tr>
-	<td height="80" colspan="4">
-		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">&nbsp;&nbsp;&nbsp;&nbsp;
+	<table width="900px" class="tt3">
+		<tr>
+			<td colspan="4" height="40">&nbsp;</td>
+		</tr>
+		<!-- Q_LIST에서 받아온 데이터// 이름, 문의내용, 답변내용 -->
+			<form action="qdelete" method="post" name="reg_frm">
+			<input type="hidden" name="qnum" value="${qview.qnum }">
+			<input type="hidden" name="qstatus" value="문의취소">
+			
+		<tr>
+			<td width="25%">&nbsp;</td>
+			<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
+			<td width="40%">
+				<input type="text"  id="password" value="${qview.qname }" name="qname" readonly>
+			</td>
+			<td width="25%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="25%">&nbsp;</td>
+			<td width="10%"><img src="<c:url value="/resources/img/question.png" />"></td>
+			<td width="40%">
+				<textarea name="qquestion" readonly>${qview.qquestion }</textarea>
+			</td>
+			<td width="25%">&nbsp;</td>
+		</tr>
 		
-		<% 	
-		if(request.getAttribute("answer").equals("준비중")) {
-		%>
-		<input id="button" type="submit" value="문의취소" onclick="qdel()">
-		<%
-		}else {
-		%>
-
-		<%}
-		%>
-	</td>
-</tr>
-
-</table>
+		<tr>
+			<td width="25%">&nbsp;</td>
+			<td width="10%"><img src="<c:url value="/resources/img/answer.png" />"></td>
+			<td width="40%">
+				<textarea name="qanswer" readonly>
+			<% 	
+				if(request.getAttribute("answer").equals("준비중")) {
+			%>
+				<c:out value="준비중입니다."></c:out>
+			<% 	
+				}else if(request.getAttribute("answer").equals("문의취소")) {
+			%>
+				<c:out value="취소된 문의입니다."></c:out>
+			<%
+				}else {
+			%>
+				${qview.qanswer }
+			<%}
+			%>
+				</textarea>	
+			</td>
+			<td width="25%">&nbsp;</td>
+		</tr>
+		
+		
+		<tr>
+			<td colspan="4" height="40">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="80" colspan="4">
+				<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				<% 	
+				if(request.getAttribute("answer").equals("준비중")) {
+				%>
+				<input id="button" type="submit" value="문의취소" onclick="qdel()">
+				<%
+				}else {
+				%>
+		
+				<%}
+				%>
+			</td>
+		</tr>
+		
+	</table>
 
 
 
@@ -130,11 +124,11 @@
 <% } else {out.print("로그인 후 이용 가능합니다.");} %>
 
 </div>
-        <table class="mtable">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+	<table class="mtable">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 
 <!--  왼쪽 메뉴 추가 -->
 

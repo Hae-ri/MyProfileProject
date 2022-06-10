@@ -51,7 +51,6 @@
 
 					<table class="tt2" width="90%">
 						<tr>
-							<td width="25%">이력(접종/진료/미용)</td>
 							<td width="25%">예약(접종/진료/미용)</td>
 							<td width="25%">1:1 문의하기</td>
 							<td width="25%">회원정보수정</td>
@@ -59,7 +58,6 @@
 					
 						<tr  height="200">
 							<td><a href="history"><img src="<c:url value="/resources/img/care.png" />"></a></td>
-							<td><a href="mwrite"><img src="<c:url value="/resources/img/write.png" />"></a></td>
 							<td><a href="QnA"><img src="<c:url value="/resources/img/qna.png" />"></a></td>
 							<td><a href="infomodify"><img src="<c:url value="/resources/img/infomodify.png" />"></a></td>
 						</tr>

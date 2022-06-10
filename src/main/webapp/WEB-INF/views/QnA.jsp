@@ -31,93 +31,85 @@
         <!-- 본문 컨테이너 : main -->
         <div id="main">
 
-<div class="wrapper_history">
+		<div class="wrapper_history">
 
-<table class="tt1">
-						<tr>
-							<td><span id="menu">${memberDto.mname }님 문의내역</span></td>
-						</tr>		
-					</table>
+		<table class="tt1">
+			<tr>
+				<td><span id="menu">${memberDto.mname }님 문의내역</span></td>
+			</tr>		
+		</table>
 					
 
         <div class="tab1_content"> <!-- 전체 -->
         
-        <table>
-						<tr>
-							<td><span id="count">
-
-	${count} 건</span></td>
-						</tr>		
-					</table>
+	<table>
+		<tr>
+			<td><span id="count">${count} 건</span></td>
+		</tr>		
+	</table>
 					
-					
-            <table width="800px" class="tab_table01">
+	<table width="800px" class="tab_table01">
+		<tr height="40">
+			<th>순번</th>
+			<th>문의 내용</th>
+			<th>날짜</th>
+			<th>답변</th>
+		</tr>
 
+		<c:forEach items="${list }" var="dto" varStatus="status">
+		<tr height="30">
+			
+					<td class="tab_td">${count+1-status.count}</td>
+			<td class="tab_td01"><a href="qview?qnum=${dto.qnum }">
+			
+			<c:choose>
+				<c:when test="${fn:length(dto.qquestion) > 19 }">
+					<c:out value="${fn:substring(dto.qquestion,0,18)}" />....
+				</c:when>
+				<c:otherwise>
+					<c:out value="${dto.qquestion }" />
+				</c:otherwise>	
+			</c:choose>
+			</a>
+			
+			<td class="tab_td">
+				${dto.qdate }
+			<td class="tab_td">${dto.qstatus }</td>
+		</tr>		
+		</c:forEach>
+		<tr>
+			<td height="40">&nbsp;</td>
+		</tr>
 
-	
-<tr height="40">
-
-								<th>순번</th>
-								<th>문의 내용</th>
-								<th>날짜</th>
-								<th>답변</th>
-</tr>
-
-
-	<c:forEach items="${list }" var="dto" varStatus="status">
-							<tr height="30">
-								
-  								<td class="tab_td">${count+1-status.count}</td>
-								<td class="tab_td01"><a href="qview?qnum=${dto.qnum }">
-								
-								<c:choose>
-									<c:when test="${fn:length(dto.qquestion) > 19 }">
-										<c:out value="${fn:substring(dto.qquestion,0,18)}" />....
-									</c:when>
-									<c:otherwise>
-										<c:out value="${dto.qquestion }" />
-									</c:otherwise>	
-								</c:choose>
-								</a>
-								
-								<td class="tab_td">
-									${dto.qdate }
-								<td class="tab_td">${dto.qstatus }</td>
-							</tr>		
-							</c:forEach>
-<tr>
-	<td height="40">&nbsp;</td>
-</tr>
-
-</table>
+	</table>
 
             
         </div>
           
 
 
-<table width="900px" class="tt3">
+	<table width="900px" class="tt3">
 
-<tr>
-	<td height="80px" colspan="4">
+		<tr>
+			<td height="80px" colspan="4">
 	
-	<input id="history_button" type="button" value="문의하기" onclick="javascript:window.location='qwrite'">
+				<input id="history_button" type="button" value="문의하기" onclick="javascript:window.location='qwrite'">
 		
 		<!--
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<input id="history_button" type="button" value="돌아가기" onclick="javascript:window.location='memberInfo'">
 		-->
 	
-	</td>
-</tr>
+			</td>
+		</tr>
 			
-		</table>	
-		</div>
-        <table class="mtable">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+	</table>	
+	</div>
+	<table class="mtable">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 
 <!--  왼쪽 메뉴 추가 -->
 

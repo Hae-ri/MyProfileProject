@@ -24,7 +24,7 @@
 <% if(session.getAttribute("id") != null) {
 	%>
 
-<!--Content 영역-->
+	<!--Content 영역-->
     <div id="content" >
        
         <!-- 왼쪽 메뉴 영역 -->
@@ -39,42 +39,32 @@
        
         <!-- 본문 컨테이너 : main -->
         <div id="main">
-
-
-<!--<div class="wrapper_history">-->
-			
-					
-					
-<table class="tt2">
-						<tr>
-							<td><h2>예약내역</h2></td>
-						</tr>		
-					</table>
+	
+		<table class="tt2">
+			<tr>
+				<td><h2>예약내역</h2></td>
+			</tr>		
+		</table>
 					
 
-    <div class="tabmenu">
-        <input type="radio" name="tab" id="tab1" checked="checked">
-        <input type="radio" name="tab" id="tab2">
-        <input type="radio" name="tab" id="tab3">
-        <input type="radio" name="tab" id="tab4">
-        <label class="label1" for="tab1">전체 보기</label>
-        <label for="tab2">접종</label>
-        <label for="tab3">진료</label>
-        <label for="tab4">미용</label>
+		<div class="tabmenu">
+	        <input type="radio" name="tab" id="tab1" checked="checked">
+	        <input type="radio" name="tab" id="tab2">
+	        <input type="radio" name="tab" id="tab3">
+	        <input type="radio" name="tab" id="tab4">
+	        <label class="label1" for="tab1">전체 보기</label>
+	        <label for="tab2">접종</label>
+	        <label for="tab3">진료</label>
+	        <label for="tab4">미용</label>
         
         
         <div class="tab1_content"> <!-- 전체 -->
         
         <table>
-						<tr>
-							<td><span id="count">
-
-	
-	
-	
-	${count} 건</span></td>
-						</tr>		
-					</table>
+			<tr>
+				<td><span id="count">${count} 건</span></td>
+			</tr>		
+		</table>
 					
 					
             <table width="800px" class="tab_table01">
@@ -96,7 +86,19 @@
   								<td width="100px" class="tab_td">${count+1-status.count}</td>
 								<td width="150px" class="tab_td">${dto.rclass }</td>
 								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto.rnum }">
-									<c:out value="${fn:substring(dto.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto.rdayof,11,16) }"></c:out>
+									<c:out value="${fn:substring(dto.rdayof,0,10) }"></c:out>&nbsp;
+
+									<c:set var="time" value="${dto.rtime }"/>
+									
+									<c:choose>
+										<c:when test="${time eq '1' }">10:30~11:30</c:when>
+										<c:when test="${time eq '2' }">11:30~12:30</c:when>
+										<c:when test="${time eq '3' }">13:30~14:30</c:when>
+										<c:when test="${time eq '4' }">14:30~15:30</c:when>
+										<c:when test="${time eq '5' }">15:30~16:30</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+									
 								<td width="200px" class="tab_td">${dto.rname }</td>
 								<td width="150px" class="tab_td">${dto.rstatus }</td>
 							</tr>		
@@ -135,7 +137,20 @@
   								<td width="100px" class="tab_td">${count01+1-status.count}</td>
 								<td width="150px" class="tab_td">${dto01.rclass }</td>
 								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto01.rnum }">
-									<c:out value="${fn:substring(dto01.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto01.rdayof,11,16) }"></c:out>
+									<c:out value="${fn:substring(dto01.rdayof,0,10) }"></c:out>&nbsp;
+
+
+									<c:set var="time" value="${dto01.rtime }"/>
+									
+									<c:choose>
+										<c:when test="${time eq '1' }">10:30~11:30</c:when>
+										<c:when test="${time eq '2' }">11:30~12:30</c:when>
+										<c:when test="${time eq '3' }">13:30~14:30</c:when>
+										<c:when test="${time eq '4' }">14:30~15:30</c:when>
+										<c:when test="${time eq '5' }">15:30~16:30</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+									
 								<td width="200px" class="tab_td">${dto01.rname }</td>
 								<td width="150px" class="tab_td">${dto01.rstatus }</td>
 							</tr>		
@@ -173,7 +188,20 @@
   								<td width="100px" class="tab_td">${count02+1-status.count}</td>
 								<td width="150px" class="tab_td">${dto02.rclass }</td>
 								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto02.rnum }">
-									<c:out value="${fn:substring(dto02.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto02.rdayof,11,16) }"></c:out>
+									<c:out value="${fn:substring(dto02.rdayof,0,10) }"></c:out>&nbsp;
+
+
+									<c:set var="time" value="${dto02.rtime }"/>
+									
+									<c:choose>
+										<c:when test="${time eq '1' }">10:30~11:30</c:when>
+										<c:when test="${time eq '2' }">11:30~12:30</c:when>
+										<c:when test="${time eq '3' }">13:30~14:30</c:when>
+										<c:when test="${time eq '4' }">14:30~15:30</c:when>
+										<c:when test="${time eq '5' }">15:30~16:30</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+									
 								<td width="200px" class="tab_td">${dto02.rname }</td>
 								<td width="150px" class="tab_td">${dto02.rstatus }</td>
 							</tr>		
@@ -212,7 +240,19 @@
   								<td width="100px" class="tab_td">${count03+1-status.count}</td>
 								<td width="150px" class="tab_td">${dto03.rclass }</td>
 								<td width="200px" class="tab_td"><a href="adminmview?rnum=${dto03.rnum }">
-									<c:out value="${fn:substring(dto03.rdayof,0,10) }"></c:out>&nbsp;<c:out value="${fn:substring(dto03.rdayof,11,16) }"></c:out>
+									<c:out value="${fn:substring(dto03.rdayof,0,10) }"></c:out>&nbsp;
+
+
+									<c:set var="time" value="${dto03.rtime }"/>
+									
+									<c:choose>
+										<c:when test="${time eq '1' }">10:30~11:30</c:when>
+										<c:when test="${time eq '2' }">11:30~12:30</c:when>
+										<c:when test="${time eq '3' }">13:30~14:30</c:when>
+										<c:when test="${time eq '4' }">14:30~15:30</c:when>
+										<c:when test="${time eq '5' }">15:30~16:30</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
 								<td width="200px" class="tab_td">${dto03.rname }</td>
 								<td width="150px" class="tab_td">${dto03.rstatus }</td>
 							</tr>		

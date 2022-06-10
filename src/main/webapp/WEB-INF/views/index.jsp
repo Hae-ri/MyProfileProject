@@ -15,34 +15,33 @@
 </head>
 <body>
 	
-	<%@ include file="include/header.jsp" %>
+<%@ include file="include/header.jsp" %>
 	
 	<div="wrap">
 	
 	<section>
-	<table class="mtable">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+		<table class="mtable">
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
 
-<center>
-
-	<table>
-	<tr>
-		<td><img src="<c:url value="/resources/img/cat4.jpg" />"> </td>
-	</tr>
-</table>
-           
-</center>
+		<center>
+		<table>
+			<tr>
+				<td><img src="<c:url value="/resources/img/cat4.jpg" />"> </td>
+			</tr>
+		</table>   
+		</center>
+		
         <table class="mtable">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-</table>
-</section>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>
 
-	<%@ include file="include/footer.jsp" %>
+<%@ include file="include/footer.jsp" %>
 	</div>
 
 </body>

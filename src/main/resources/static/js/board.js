@@ -20,7 +20,14 @@ function boardConfirm() {
 		alert("예약일자를 입력해주세요.");
 		reg_frm.rdayof.focus();
 		return;
-	}	
+	}
+	
+		if(document.reg_frm.rtime.value.length == 0) {
+		alert("시간을 선택해주세요.");
+		reg_frm.rtime.focus();
+		return;
+	}
+		
 	
 	document.reg_frm.submit();
 }

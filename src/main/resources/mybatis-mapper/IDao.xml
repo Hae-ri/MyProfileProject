@@ -54,7 +54,7 @@
 		SELECT count(*) FROM R_LIST where rid=#{param1}	and rclass='미용'
 	</select>
 	<insert id="writeDao">
-		insert into R_LIST (rnum, rid, rname, rclass, rdayof, rcontent,  rstatus) values (R_LIST_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+		insert into R_LIST (rnum, rid, rname, rclass, rdayof, rtime, rcontent,  rstatus) values (R_LIST_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7})
 	</insert>
 	<select id="viewDao" resultType="com.javatest.MyProfile.dto.ReservationListDto">
 		select * from R_LIST where rnum=#{param1}	
@@ -127,4 +127,5 @@
 	</update>
 
 	
+
 </mapper>

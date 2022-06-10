@@ -43,50 +43,48 @@
 
 						
 
-					<table class="tt1">
-						<tr>
-							<td><span id="menu">문의하기</span></td>
-						</tr>
-					</table>
+		<table class="tt1">
+			<tr>
+				<td><span id="menu">문의하기</span></td>
+			</tr>
+		</table>
 					
 					
-<table width="900px" class="tt3">
-<tr>
-	<td colspan="4" height="40">&nbsp;</td>
-</tr>
-<!-- Q_LIST로 넘겨줄 데이터// 아이디, 이름, 문의내용 -->
-	<form action="questionwrite" method="post" name="reg_frm">
-	<input type="hidden" name="qid" value="${memberDto.mid }">	
-	<input type="hidden" name="qstatus" value="준비중">
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
-	<td width="40%">
-	 <input type="text"  id="password" value="${memberDto.mname }" name="qname">
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td width="25%">&nbsp;</td>
-	<td width="10%"><img src="<c:url value="/resources/img/qwrite.png" />"></td>
-	<td width="40%">
-	
-	<textarea name="qquestion"></textarea>	
-	</td>
-	<td width="25%">&nbsp;</td>
-</tr>
-<tr>
-	<td colspan="4" height="40">&nbsp;</td>
-</tr>
-<tr>
-	<td height="80" colspan="4">
-		<input id="button" type="button" value="문의하기" onclick="qboardConfirm()">&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">
-	</td>
-</tr>
-
-</table>
-</form>	
+		<table width="900px" class="tt3">
+			<tr>
+				<td colspan="4" height="40">&nbsp;</td>
+			</tr>
+			<!-- Q_LIST로 넘겨줄 데이터// 아이디, 이름, 문의내용 -->
+				<form action="questionwrite" method="post" name="reg_frm">
+				<input type="hidden" name="qid" value="${memberDto.mid }">	
+				<input type="hidden" name="qstatus" value="준비중">
+			<tr>
+				<td width="25%">&nbsp;</td>
+				<td width="10%"><img src="<c:url value="/resources/img/user.png" />"></td>
+				<td width="40%">
+					<input type="text"  id="password" value="${memberDto.mname }" name="qname">
+				</td>
+				<td width="25%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="25%">&nbsp;</td>
+				<td width="10%"><img src="<c:url value="/resources/img/qwrite.png" />"></td>
+				<td width="40%">
+					<textarea name="qquestion"></textarea>	
+				</td>
+				<td width="25%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="40">&nbsp;</td>
+			</tr>
+			<tr>
+				<td height="80" colspan="4">
+					<input id="button" type="button" value="문의하기" onclick="qboardConfirm()">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input id="button" type="button" value="문의내역" onclick="javascript:window.location='QnA'">
+				</td>
+			</tr>
+			</form>	
+		</table>
 
 
 
@@ -94,11 +92,11 @@
 <% } else {out.print("로그인 후 이용 가능합니다.");} %>
 
 </div>
-        <table class="mtable">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+	<table class="mtable">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 
 <!--  왼쪽 메뉴 추가 -->
 

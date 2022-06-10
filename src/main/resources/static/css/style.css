@@ -165,3 +165,9 @@ input::placeholder {
     padding: 5px;
     text-align: center;
 }
+
+/* 캘린더 css 설정 */
+
+input[name='rdayof'] {
+    width: 33%;
+}

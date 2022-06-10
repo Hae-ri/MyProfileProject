@@ -17,7 +17,7 @@ public interface IDao {
 	public ArrayList<ReservationListDto> list01Dao(String rid); // 접종 예약리스트 가져오기
 	public ArrayList<ReservationListDto> list02Dao(String rid); // 진료 예약리스트 가져오기
 	public ArrayList<ReservationListDto> list03Dao(String rid); // 미용 예약리스트 가져오기
-	public void writeDao(String rid, String rname, String rclass, String rdayof, String rcontent, String rstatus); // 예약하기
+	public void writeDao(String rid, String rname, String rclass, String rdayof, String rtime, String rcontent, String rstatus); // 예약하기
 	public ReservationListDto viewDao(String rnum); // 예약 내용 보기
 	public void rcancleDao(String rstatus, String rnum); // 예약 취소
 	public int countList(String rid); // 예약 건수
