@@ -59,6 +59,7 @@
 
 								<th>순번</th>
 								<th>문의 내용</th>
+								<th>문의자</th>
 								<th>날짜</th>
 								<th>답변</th>
 </tr>
@@ -79,7 +80,7 @@
 									</c:otherwise>	
 								</c:choose>
 								</a>
-								
+								<td class="tab_td">${dto.qname }</td>
 								<td class="tab_td">
 									${dto.qdate }
 								<td class="tab_td">${dto.qstatus }</td>
