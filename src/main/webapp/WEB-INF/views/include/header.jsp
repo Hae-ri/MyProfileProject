@@ -13,7 +13,7 @@
 	<table class="t-type03" width="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr height="50">
 			<td width="5%">&nbsp;</td>
-			<td width="5%" align="center"><a href="index"><img src="<c:url value="/resources/img/pet.png" />"></a></td>
+			<td width="5%" align="center"><a href="main"><img src="<c:url value="/resources/img/pet.png" />"></a></td>
 			<td width="10%">우리아이사랑병원</td>
 			<td width="50%">&nbsp;</td>
 

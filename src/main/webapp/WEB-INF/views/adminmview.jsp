@@ -50,7 +50,7 @@
 			</tr>
 			<form action="visitOK" method="post" name="reg_frm">
 				<input type="hidden" name="rnum" value="${mview.rnum }">
-				<input type="hidden" name="rstatus" value="예약취소">
+				<input type="hidden" name="rstatus" value="방문완료">
 
 			<tr>
 				<td width="25%">&nbsp;</td>
@@ -122,8 +122,8 @@
 	<%
 	if(request.getAttribute("Rstatus").equals("예약완료")) {
 	%>
-		<!-- <input id="button" type="button" value="방문완료" onclick="visitCheck()">&nbsp;&nbsp;&nbsp;&nbsp;	 -->
-		<input id="button" type="submit" value="예약취소" onclick="admindel(${mview.rnum })">&nbsp;&nbsp;&nbsp;&nbsp;	
+		<input id="button" type="button" value="방문완료" onclick="visitCheck()">&nbsp;&nbsp;&nbsp;&nbsp;	 
+		<!-- <input id="button" type="submit" value="예약취소" onclick="admindel(${mview.rnum })">&nbsp;&nbsp;&nbsp;&nbsp;	-->
 		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='adminhistory'">&nbsp;&nbsp;&nbsp;&nbsp;		
 	<%}if(request.getAttribute("Rstatus").equals("방문완료") || request.getAttribute("Rstatus").equals("예약취소") ) { %>
 		<input id="button" type="button" value="돌아가기" onclick="javascript:window.location='adminhistory'">&nbsp;&nbsp;&nbsp;&nbsp;

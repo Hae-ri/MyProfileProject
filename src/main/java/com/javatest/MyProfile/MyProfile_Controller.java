@@ -29,13 +29,13 @@ public class MyProfile_Controller {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 	
-		return "index";
+		return "main";
 	}
 	
-	@RequestMapping(value = "/index")
-	public String index() {
+	@RequestMapping(value = "/main")
+	public String main() {
 	
-		return "index";
+		return "main";
 	}
 	
 	@RequestMapping(value = "/login") // 로그인 클릭하면

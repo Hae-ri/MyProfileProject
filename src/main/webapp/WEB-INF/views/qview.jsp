@@ -76,21 +76,14 @@
 			<td width="10%"><img src="<c:url value="/resources/img/answer.png" />"></td>
 			<td width="40%">
 				<textarea name="qanswer" readonly>
-			<% 	
-				if(request.getAttribute("answer").equals("준비중")) {
-			%>
-				<c:out value="준비중입니다."></c:out>
-			<% 	
-				}else if(request.getAttribute("answer").equals("문의취소")) {
-			%>
-				<c:out value="취소된 문의입니다."></c:out>
-			<%
-				}else {
-			%>
-				${qview.qanswer }
-			<%}
-			%>
-				</textarea>	
+<%if(request.getAttribute("answer").equals("준비중")) {
+%><c:out value="준비중입니다."></c:out>
+<%}else if(request.getAttribute("answer").equals("문의취소")) {
+%><c:out value="취소된 문의입니다."></c:out>
+<%}else {
+%>${qview.qanswer }
+<%}
+%></textarea>	
 			</td>
 			<td width="25%">&nbsp;</td>
 		</tr>
